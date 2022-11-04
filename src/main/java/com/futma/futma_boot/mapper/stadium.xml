@@ -1,0 +1,23 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stadium">	
+	 		
+	
+	<select id="getByIdx" parameterType="Stadium" resultType="Stadium">
+		SELECT * 
+		FROM `stadium`
+		WHERE stadium_idx=#{stadium_idx}
+	</select>
+	
+	<select id="search" parameterType="HashMap" resultType="Stadium">
+		SELECT *
+		FROM `stadium`
+		<trim prefix="WHERE" suffixOverrides="WHERE" prefixOverrides="AND | OR | WHERE">
+			<if test="location != null">
+				location='${location}' 
+			</if>
+			<if test="word != null">
+				AND MATCH(search_txt) AGAINST('*${word}*' IN BOOLEAN MODE)
+			</if>
+		</trim>
+	</select>
+</mapper>

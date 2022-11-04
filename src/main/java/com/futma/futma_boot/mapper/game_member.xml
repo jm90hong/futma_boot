@@ -1,0 +1,54 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="game_member">	
+	 		
+
+	<select id="getCurrentJoinedGameByUserIdx"  parameterType="HashMap" resultType="Game">
+		SELECT * 
+	 	FROM game_member AS gm
+	 	INNER JOIN game AS g
+	 	ON gm.game_idx = g.game_idx
+	 	WHERE 
+	 		gm.user_idx = #{user_idx}
+	 		AND
+	 		g.end_time_mill >= #{now_time_mill}
+	</select>
+	
+	 		
+	 		
+	 <select id="getByUserIdx" parameterType="GameMember" resultType="GameMember">
+	 	SELECT * 
+	 	FROM game_member 
+	 	WHERE 
+	 		user_idx=#{user_idx} 
+	 		AND 
+	 		del_ny='n'
+	 </select>
+	 		
+	 <select id="getByPlayIdx" parameterType="GameMember" resultType="GameMember">
+	 	SELECT * 
+	 	FROM game_member AS gm
+	 	INNER JOIN user AS u
+	 	ON gm.user_idx=u.user_idx
+	 	WHERE gm.game_idx=#{game_idx}
+	 </select>
+	 
+	 
+	 
+	 
+	 <insert id="add" parameterType="GameMember">
+	 	INSERT INTO game_member
+	 	(game_idx, user_idx, price, pay_ny, del_ny, pay_date, created_date)
+	 	VALUES
+	 	(#{game_idx}, #{user_idx}, #{price}, #{pay_ny}, 'n', SYSDATE(), SYSDATE())
+	 </insert>
+	 		
+		
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>

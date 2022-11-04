@@ -1,0 +1,146 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="game">	
+	 		
+	 
+	 
+	 <select id="getCurrentGameByUserIdx" parameterType="HashMap" resultType="Game">
+	 	SELECT * 
+	 	FROM game as g 
+	 	INNER JOIN stadium as s
+	 	ON g.stadium_idx = s.stadium_idx
+	 	WHERE 
+	 		g.user_idx=#{user_idx} 
+	 		AND
+	 		g.end_time_mill >= #{now_time_mill}
+	 </select>
+	 
+	 
+	 <select id="getByUserIdx" parameterType="Game" resultType="Game">
+	 	SELECT * 
+	 	FROM game as g 
+	 	INNER JOIN user as u
+	 	ON g.user_idx = u.user_idx
+	 	INNER JOIN stadium as s
+	 	ON g.stadium_idx = s.stadium_idx
+	 	WHERE g.user_idx=#{user_idx}
+	 </select>		
+	 
+	 
+	 
+	 
+	 <select id="getByIdx" parameterType="Game" resultType="Game">
+	 	SELECT * 
+	 	FROM game as g 
+	 	INNER JOIN user as u
+	 	ON g.user_idx = u.user_idx
+	 	INNER JOIN stadium as s
+	 	ON g.stadium_idx = s.stadium_idx
+	 	WHERE g.game_idx=#{game_idx}
+	 </select>		
+	 		
+	 		
+		
+	 		
+	 <select id="search" parameterType="HashMap" resultType="Game">
+	 	SELECT * 
+	 	FROM game as g 
+	 	INNER JOIN user as u
+	 	ON g.user_idx = u.user_idx
+	 	INNER JOIN stadium as s
+	 	ON g.stadium_idx = s.stadium_idx
+	 	<trim prefix="WHERE" suffixOverrides="WHERE" prefixOverrides="AND | OR">
+	 		<if test="arr_stadium_idx.size != 0">
+	 			AND g.stadium_idx IN
+	 			<foreach item="item" index="index" collection="arr_stadium_idx" open="(" separator="," close=")">
+		        	#{item}
+		  		</foreach>
+	 		</if>
+	 		
+	 		<if test="arr_gender.size != 0">
+	 			AND g.gender IN
+	 			<foreach item="item" index="index" collection="arr_gender" open="(" separator="," close=")">
+		        	#{item}
+		  		</foreach>
+	 		</if>
+	 		
+	 		<if test="arr_start_hour.size != 0">
+	 			AND g.start_hr IN
+	 			<foreach item="item" index="index" collection="arr_start_hour" open="(" separator="," close=")">
+		        	#{item}
+		  		</foreach>
+	 		</if>
+	 		
+	 		<if test="arr_weekday.size != 0">
+	 			AND g.weekday IN
+	 			<foreach item="item" index="index" collection="arr_weekday" open="(" separator="," close=")">
+		        	#{item}
+		  		</foreach>
+	 		</if>
+	 		AND del_ny='n'
+	 	</trim>
+	 	ORDER BY g.game_idx DESC
+	 	LIMIT #{s},#{c}
+	 	
+	 </select>		
+	 		
+	 		
+	 <insert id="add" parameterType="Game">
+	 	 INSERT INTO `game`
+		 (
+		 	user_idx,
+		 	stadium_idx,
+		 	start_date,
+		 	weekday,
+		 	start_hr,
+		 	start_time_str,
+		 	start_time_mill,
+		 	end_time_mill,
+		 	period_hr,
+		 	num_to_num,
+		 	hw_mny_team,
+		 	gender,
+		 	team_or_person,
+		 	free_or_pay,
+		 	end_game_ny,
+		 	price,
+		 	content,
+		 	player_cnt,
+		 	modified_date,
+		 	created_date
+	 	 )
+		 VALUES
+		 (
+		 	#{user_idx},
+		 	#{stadium_idx},
+		 	#{start_date},
+		 	#{weekday},
+		 	#{start_hr},
+		 	#{start_time_str},
+		 	#{start_time_mill},
+		 	#{end_time_mill},
+		 	#{period_hr},
+		 	#{num_to_num},
+		 	#{hw_mny_team},
+		 	#{gender},
+		 	#{team_or_person},
+		 	#{free_or_pay},
+		 	#{end_game_ny},
+		 	#{price},
+		 	#{content},
+		 	#{player_cnt},
+		 	SYSDATE(),
+		 	SYSDATE()
+		 )	
+	 </insert>	
+	 	
+	 		
+		
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>
