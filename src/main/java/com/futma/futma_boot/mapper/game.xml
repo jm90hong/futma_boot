@@ -3,6 +3,15 @@
 	 		
 	 
 	 
+	 <update id="updateNowPlayerCnt" parameterType="Game">
+	 	UPDATE game
+	 	SET
+	 		now_player_cnt = now_player_cnt+#{now_player_cnt}
+	 	WHERE 
+	 		game_idx=#{game_idx}	
+	 </update>
+	 
+	 
 	 <select id="getCurrentGameByUserIdx" parameterType="HashMap" resultType="Game">
 	 	SELECT * 
 	 	FROM game as g 

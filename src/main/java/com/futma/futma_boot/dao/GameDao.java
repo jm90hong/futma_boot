@@ -17,6 +17,12 @@ public class GameDao{
 	@Autowired
 	SqlSession sqlSession;
 	
+	
+	
+	public int updateNowPlayerCnt(Game game) {
+		return sqlSession.update("game.updateNowPlayerCnt",game);
+	}
+	
 	public List<Game> getCurrentGameByUserIdx(HashMap<String, Object> map){
 		return sqlSession.selectList("game.getCurrentGameByUserIdx",map);
 	}

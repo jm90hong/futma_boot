@@ -29,6 +29,7 @@ public class GameMemberController {
 	@Autowired
 	private GameService gameService;
 	
+	
 
 	@Autowired
 	private GameMemberService gameMemberService;
@@ -110,7 +111,7 @@ public class GameMemberController {
 	
 		
 		if(game.getNow_player_cnt() < game.getPlayer_cnt()) {
-			gameMemberService.add(pm);
+			gameMemberService.add(pm,game);
 			return "ok";
 		}else {
 			return "over";

@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.futma.futma_boot.dao.GameDao;
 import com.futma.futma_boot.dao.GameMemberDao;
 import com.futma.futma_boot.vo.Game;
 import com.futma.futma_boot.vo.GameMember;
@@ -15,6 +17,9 @@ public class GameMemberService {
 	@Autowired
 	GameMemberDao gameMemberDao;
 	
+	
+	@Autowired
+	GameDao gameDao;
 	
 	
 	public List<Game> getCurrentJoinedGameByUserIdx(HashMap<String, Object> map){
@@ -26,7 +31,9 @@ public class GameMemberService {
 	}
 	
 	
-	public int add(GameMember gm) {
+	@Transactional
+	public int add(GameMember gm, Game g) {
+		gameDao.updateNowPlayerCnt(g);
 		return gameMemberDao.add(gm);
 	}
 	
