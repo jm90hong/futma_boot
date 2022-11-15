@@ -111,6 +111,8 @@ public class GameMemberController {
 	
 		
 		if(game.getNow_player_cnt() < game.getPlayer_cnt()) {
+			//set now_player_cnt 1
+			game.setNow_player_cnt(1);
 			gameMemberService.add(pm,game);
 			return "ok";
 		}else {
