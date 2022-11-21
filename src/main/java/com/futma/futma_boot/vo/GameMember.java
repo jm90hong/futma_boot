@@ -13,6 +13,34 @@ public class GameMember {
 	
 	
 	
+	//user
+	private String id=null;
+	private String nick=null;
+	private String small_image_url=null;
+	
+	
+	
+	
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+	public String getSmall_image_url() {
+		return small_image_url;
+	}
+	public void setSmall_image_url(String small_image_url) {
+		this.small_image_url = small_image_url;
+	}
 	public int getGame_mem_idx() {
 		return game_mem_idx;
 	}

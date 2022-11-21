@@ -24,7 +24,7 @@
 	 		del_ny='n'
 	 </select>
 	 		
-	 <select id="getByPlayIdx" parameterType="GameMember" resultType="GameMember">
+	 <select id="getByGameIdx" parameterType="GameMember" resultType="GameMember">
 	 	SELECT * 
 	 	FROM game_member AS gm
 	 	INNER JOIN user AS u
