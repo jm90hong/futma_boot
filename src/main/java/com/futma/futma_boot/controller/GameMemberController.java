@@ -77,7 +77,7 @@ public class GameMemberController {
 		GameMember pm = new GameMember();
 		pm.setGame_idx(game_idx);
 		
-		List<GameMember> list = gameMemberService.getByPlayIdx(pm);
+		List<GameMember> list = gameMemberService.getByGameIdx(pm);
 		
 		return list;
 		
@@ -102,6 +102,8 @@ public class GameMemberController {
 		pm.setGame_idx(game_idx);
 		pm.setUser_idx(user_idx);
 		pm.setPrice(game.getPrice());
+		
+		
 		if(game.getPrice()==0) {
 			pm.setPay_ny("y");
 		}else {
@@ -109,7 +111,6 @@ public class GameMemberController {
 		}
 		
 	
-		
 		if(game.getNow_player_cnt() < game.getPlayer_cnt()) {
 			//set now_player_cnt 1
 			game.setNow_player_cnt(1);

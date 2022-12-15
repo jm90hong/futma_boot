@@ -34,7 +34,7 @@ public class GameMemberDao {
 	}
 	
 	
-	public List<GameMember> getByPlayIdx(GameMember gm){
+	public List<GameMember> getByGameIdx(GameMember gm){
 		return sqlSession.selectList("game_member.getByGameIdx",gm);
 	}
 	

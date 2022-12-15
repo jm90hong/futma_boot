@@ -6,9 +6,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.futma.futma_boot.dao.GameDao;
 import com.futma.futma_boot.vo.Game;
+import com.futma.futma_boot.vo.GameMember;
 
 @Service
 public class GameService {
@@ -16,6 +18,11 @@ public class GameService {
 	
 	@Autowired
 	GameDao gameDao;
+	
+	
+	public int updateNowPlayerCnt(Game game) {
+		return gameDao.updateNowPlayerCnt(game);
+	}
 	
 
 	public List<Game> getCurrentGameByUserIdx(HashMap<String, Object> map) {
@@ -35,6 +42,7 @@ public class GameService {
 	public List<Game> search(Map<String, Object> map){
 		return gameDao.search(map);
 	}
+	
 	
 	
 	public int add(Game game) {

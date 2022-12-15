@@ -38,8 +38,10 @@ public class GameMemberService {
 	}
 	
 	
-	public List<GameMember> getByPlayIdx(GameMember gm){
-		return gameMemberDao.getByPlayIdx(gm);
+	public List<GameMember> getByGameIdx(GameMember gm){
+		return gameMemberDao.getByGameIdx(gm);
 	}
+	
+	
 	
 }
