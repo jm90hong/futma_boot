@@ -34,6 +34,10 @@ public class GameMemberDao {
 	}
 	
 	
+	public int delMember(GameMember gm) {
+		return sqlSession.delete("game_member.delMember",gm);
+	}
+	
 	public List<GameMember> getByGameIdx(GameMember gm){
 		return sqlSession.selectList("game_member.getByGameIdx",gm);
 	}

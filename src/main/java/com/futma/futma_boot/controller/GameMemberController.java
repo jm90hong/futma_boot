@@ -84,7 +84,21 @@ public class GameMemberController {
 	}
 	
 	
-	
+	@RequestMapping(value="delMember", method=RequestMethod.POST)
+	public @ResponseBody String delMember(
+				@RequestParam(value="game_mem_idx") int game_mem_idx,
+				@RequestParam(value="game_idx") int game_idx
+			) {
+		
+		GameMember gm = new GameMember();
+		gm.setGame_mem_idx(game_mem_idx);
+		gm.setGame_idx(game_idx);
+		
+		gameMemberService.delMember(gm);
+		
+		
+		return "ok";
+	}
 	
 	@RequestMapping(value="add", method=RequestMethod.POST)
 	public @ResponseBody String add(

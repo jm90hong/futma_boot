@@ -22,6 +22,9 @@ public class GameMemberService {
 	GameDao gameDao;
 	
 	
+	
+	
+	
 	public List<Game> getCurrentJoinedGameByUserIdx(HashMap<String, Object> map){
 		return gameMemberDao.getCurrentJoinedGameByUserIdx(map);
 	}
@@ -35,6 +38,16 @@ public class GameMemberService {
 	public int add(GameMember gm, Game g) {
 		gameDao.updateNowPlayerCnt(g);
 		return gameMemberDao.add(gm);
+	}
+	
+	@Transactional
+	public int delMember(GameMember gm) {
+		gameMemberDao.delMember(gm);
+		
+		Game game = new Game();
+		game.setGame_idx(gm.getGame_idx());
+		game.setNow_player_cnt(-1);
+		return gameDao.updateNowPlayerCnt(game);
 	}
 	
 	

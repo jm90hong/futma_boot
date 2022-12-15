@@ -33,22 +33,6 @@ public class GameController {
 	
 	
 	
-	@RequestMapping(value="updateNowPlayerCnt",method= {RequestMethod.POST})
-	public @ResponseBody String updateNowPlayerCnt(
-				@RequestParam(value="game_idx") int game_idx,
-				@RequestParam(value="n_p_cnt") int now_player_cnt
-			) {
-
-		
-		Game g = new Game();
-		g.setGame_idx(game_idx);
-		g.setNow_player_cnt(now_player_cnt);
-
-		gameService.updateNowPlayerCnt(g);
-		
-		
-		return "ok";
-	}
 	
 	
 	

@@ -44,7 +44,10 @@
 	 		
 		
 	
-	
+	 <delete id="delMember" parameterType="GameMember">
+	 	DELETE FROM game_member
+	 	WHERE game_mem_idx=#{game_mem_idx}
+	 </delete>
 	
 	
 	

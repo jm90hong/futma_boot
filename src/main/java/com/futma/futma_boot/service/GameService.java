@@ -20,9 +20,7 @@ public class GameService {
 	GameDao gameDao;
 	
 	
-	public int updateNowPlayerCnt(Game game) {
-		return gameDao.updateNowPlayerCnt(game);
-	}
+	
 	
 
 	public List<Game> getCurrentGameByUserIdx(HashMap<String, Object> map) {
