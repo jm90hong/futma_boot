@@ -19,9 +19,6 @@ public class GameMemberDao {
 	@Autowired
 	SqlSession sqlSession;
 	
-	public int deleteByIdx(GameMember gm) {
-		return sqlSession.delete("game_member.deleteByIdx",gm);
-	}
 	
 	public List<Game> getCurrentJoinedGameByUserIdx(HashMap<String, Object> map){
 		return sqlSession.selectList("game_member.getCurrentJoinedGameByUserIdx", map);

@@ -2,10 +2,7 @@
 <mapper namespace="game_member">	
 	 		
 	
-	<delete id="deleteByIdx" parameterType="GameMember">
-		DELETE FROM game_member
-		WHERE game_mem_idx = #{game_mem_idx}
-	</delete>
+	
 	
 	<select id="getCurrentJoinedGameByUserIdx"  parameterType="HashMap" resultType="Game">
 		SELECT * 

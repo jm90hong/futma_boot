@@ -22,14 +22,7 @@ public class GameMemberService {
 	GameDao gameDao;
 	
 	
-	@Transactional
-	public int deleteGameMember(GameMember gm) {
-		Game g = new Game();
-		g.setGame_idx(gm.getGame_idx());
-		g.setNow_player_cnt(-1);
-		gameDao.updateNowPlayerCnt(g);
-		return gameMemberDao.deleteByIdx(gm);
-	}
+	
 	
 	public List<Game> getCurrentJoinedGameByUserIdx(HashMap<String, Object> map){
 		return gameMemberDao.getCurrentJoinedGameByUserIdx(map);

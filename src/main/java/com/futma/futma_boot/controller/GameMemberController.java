@@ -34,19 +34,6 @@ public class GameMemberController {
 	
 	
 	
-	@PostMapping("delGM")
-	public @ResponseBody String delGM(
-				@RequestParam(value="game_mem_idx") int game_mem_idx
-			) {
-		
-		GameMember gm = new GameMember();
-		gm.setGame_mem_idx(game_mem_idx);
-		
-		gameMemberService.deleteGameMember(gm);
-		
-		return "ok";
-	}
-	
 	
 	@GetMapping("getCurrentJoinedGameByUserIdx")
 	public @ResponseBody List<Game> getCurrentJoinedGameByUserIdx(
