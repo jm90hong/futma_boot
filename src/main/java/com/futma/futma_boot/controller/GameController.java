@@ -31,11 +31,7 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 	
-	
-	
-	
-	
-	
+
 	
 	@RequestMapping(value="getCurrentGameByUserIdx",method= {RequestMethod.GET})
 	public @ResponseBody List<Game> getCurrentGameByUserIdx(

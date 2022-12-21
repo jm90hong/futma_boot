@@ -24,7 +24,6 @@ public class GameMemberService {
 	
 	
 	
-	
 	public List<Game> getCurrentJoinedGameByUserIdx(HashMap<String, Object> map){
 		return gameMemberDao.getCurrentJoinedGameByUserIdx(map);
 	}
