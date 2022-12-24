@@ -23,6 +23,7 @@ public class GameMember {
 	
 	
 	
+	
 	public String getId() {
 		return id;
 	}

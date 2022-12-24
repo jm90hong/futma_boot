@@ -50,6 +50,10 @@ public class GameMemberController {
 		return list;
 	}
 	
+	
+	
+	
+	
 	@GetMapping("getByUserIdx")
 	public @ResponseBody List<GameMember> getByUserIdx(
 				@RequestParam(value="user_idx") int user_idx
