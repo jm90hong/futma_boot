@@ -11,6 +11,11 @@ public class ManagerDao{
 	@Autowired
 	SqlSession sqlSession;
 	
+	public Manager findByUserIdx(long user_idx) {
+		return  sqlSession.selectOne("manager.findByUserIdx",user_idx);
+	}
+	
+	
 	public int add(Manager manager) {	
 		return sqlSession.insert("manager.add",manager);
 	}

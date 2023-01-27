@@ -12,6 +12,9 @@ public class UserService {
 	@Autowired
 	UserDao userDao;
 	
+	
+	
+	
 	public int updateMngReqState(User user) {
 		return userDao.updateMngReqState(user);
 	}

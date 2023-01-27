@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.futma.futma_boot.config.MyHttpHeader;
-import com.futma.futma_boot.dao.GameDao;
 import com.futma.futma_boot.service.GameService;
+import com.futma.futma_boot.service.ManagerService;
 import com.futma.futma_boot.vo.Game;
+import com.futma.futma_boot.vo.Manager;
 
 
 @Controller
@@ -30,6 +29,9 @@ public class GameController {
 	
 	@Autowired
 	private GameService gameService;
+	
+	@Autowired
+	private ManagerService managerService;
 	
 
 	
@@ -77,9 +79,7 @@ public class GameController {
 		return gameService.getByIdx(game);
 	}
 	
-	
 
-	
 	
 	@RequestMapping(value="search",method= {RequestMethod.POST})
 	public @ResponseBody List<Game> search(
@@ -115,7 +115,7 @@ public class GameController {
 				@RequestParam(value="cnt") int player_cnt
 			) {
 		
-		
+	
 		
 		Game game = new Game();
 		game.setUser_idx(user_idx);

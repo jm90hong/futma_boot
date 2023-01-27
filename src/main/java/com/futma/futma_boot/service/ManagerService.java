@@ -14,6 +14,10 @@ public class ManagerService {
 	ManagerDao managerDao;
 	
 	
+	public Manager findByUserIdx(long user_idx) {
+		return  managerDao.findByUserIdx(user_idx);
+	}
+	
 	public int add(Manager manager) {	
 		return managerDao.add(manager);
 	}

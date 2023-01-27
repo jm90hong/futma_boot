@@ -1,6 +1,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="manager">	
 	 		
+	 		
+	 		
+	 		
+	<select id="findByUserIdx" parameterType="Long" resultType="Manager">
+		SELECT * FROM manager
+		WGERE user_idx=#{user_idx}
+	</select> 		
 	 
 	 		
 	<insert id="add" parameterType="Manager" useGeneratedKeys="true" keyProperty="mng_idx">
@@ -15,6 +22,8 @@
 			act_addr2, 
 			owner_ny, 
 			kakao_pay_link, 
+			bank_name,
+			bank_account,
 			created_date)
 		VALUES
 		(
@@ -27,6 +36,8 @@
 			#{act_addr2}, 
 			#{owner_ny},
 			#{kakao_pay_link}, 
+			#{bank_name},
+			#{bank_account},
 			SYSDATE()
 		)
 	</insert>	

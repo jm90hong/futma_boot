@@ -64,7 +64,9 @@ public class ManagerController {
 			String actAdress1 = (String) map.get("a1");
 			String actAdress2 = (String) map.get("a2");
 			String owner_ny = (String) map.get("o");
-			String kakao_pay_link=(String) map.get("kakao_pay_link");
+			String kakao_pay_link=(String) map.get("kpl");
+			String bank_name=(String) map.get("bn");
+			String bank_account=(String) map.get("ba");
 			@SuppressWarnings("unchecked")
 			List<String> imgs = (List<String>) map.get("imgs");
 			
@@ -79,6 +81,8 @@ public class ManagerController {
 			manager.setAct_addr2(actAdress2);
 			manager.setOwner_ny(owner_ny);
 			manager.setKakao_pay_link(kakao_pay_link);
+			manager.setBank_name(bank_name);
+			manager.setBank_account(bank_account);
 			
 			managerService.add(manager);
 			
