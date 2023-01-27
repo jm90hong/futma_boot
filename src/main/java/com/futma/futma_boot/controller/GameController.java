@@ -92,7 +92,6 @@ public class GameController {
 	}
 	
 	
-	
 	@RequestMapping(value="add", method= RequestMethod.POST)
 	public @ResponseBody String add(
 				@RequestParam(value="uidx") long user_idx,
@@ -116,7 +115,6 @@ public class GameController {
 			) {
 		
 	
-		
 		Game game = new Game();
 		game.setUser_idx(user_idx);
 		game.setStadium_idx(stadium_idx);

@@ -47,6 +47,7 @@ public class Game {
 	
 
 
+	
 	public String getBank_name() {
 		return bank_name;
 	}
