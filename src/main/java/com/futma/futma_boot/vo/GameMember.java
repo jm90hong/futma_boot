@@ -4,6 +4,9 @@ public class GameMember {
 	private int game_mem_idx=0;
 	private long game_idx=0;
 	private int user_idx=0;
+	private String name=null;
+	private String tel=null;
+	
 	private int price=0;
 	
 	private String pay_ny=null;
@@ -24,6 +27,18 @@ public class GameMember {
 	
 	
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 	public String getId() {
 		return id;
 	}

@@ -104,7 +104,9 @@ public class GameMemberController {
 	@PostMapping("add")
 	public @ResponseBody String add(
 				@RequestParam(value="game_idx") long game_idx,
-				@RequestParam(value="user_idx") int user_idx
+				@RequestParam(value="user_idx") int user_idx,
+				@RequestParam(value="name") String name,
+				@RequestParam(value="tel") String tel
 			) {
 		
 		
@@ -117,7 +119,8 @@ public class GameMemberController {
 		pm.setGame_idx(game_idx);
 		pm.setUser_idx(user_idx);
 		pm.setPrice(game.getPrice());
-		
+		pm.setName(name);
+		pm.setTel(tel);
 		
 		if(game.getPrice()==0) {
 			pm.setPay_ny("y");

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.futma.futma_boot.service.ManagerImgService;
@@ -44,7 +44,7 @@ public class ManagerController {
 	
 	
 	
-	@RequestMapping(value="/add",method=RequestMethod.POST)
+	@PostMapping("/add")
 	public @ResponseBody String testadd(@RequestBody Map<String, Object> map) throws Exception {
 		
 		
