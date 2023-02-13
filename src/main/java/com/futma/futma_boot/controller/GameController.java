@@ -16,7 +16,6 @@ import com.futma.futma_boot.config.MyHttpHeader;
 import com.futma.futma_boot.service.GameService;
 import com.futma.futma_boot.service.ManagerService;
 import com.futma.futma_boot.vo.Game;
-import com.futma.futma_boot.vo.Manager;
 
 
 @Controller
