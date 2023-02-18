@@ -16,12 +16,35 @@ public class User {
 	private int reply_cnt=0;
 	private String created_date = null;
 	
+	
+	//manager 
+	private String act_addr1=null;
+	private String act_addr2=null;
+	private String owner_ny=null;
 
 	
 	
 	
 	
 	
+	public String getAct_addr1() {
+		return act_addr1;
+	}
+	public void setAct_addr1(String act_addr1) {
+		this.act_addr1 = act_addr1;
+	}
+	public String getAct_addr2() {
+		return act_addr2;
+	}
+	public void setAct_addr2(String act_addr2) {
+		this.act_addr2 = act_addr2;
+	}
+	public String getOwner_ny() {
+		return owner_ny;
+	}
+	public void setOwner_ny(String owner_ny) {
+		this.owner_ny = owner_ny;
+	}
 	public String getSmall_image_url() {
 		return small_image_url;
 	}

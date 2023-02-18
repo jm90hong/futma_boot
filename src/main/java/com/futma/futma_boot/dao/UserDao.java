@@ -13,6 +13,10 @@ public class UserDao {
 	@Autowired
 	SqlSession sqlSession;
 	
+	public User getUserByIdx(User user) {
+		return sqlSession.selectOne("user.getUserByIdx",user);
+	}
+	
 	public int updateMngReqState(User user) {
 		return sqlSession.update("user.updateMngReqState",user);
 	}

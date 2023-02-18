@@ -28,9 +28,24 @@ public class UserController {
 	private UserService userService;
 	
 	
+	@RequestMapping(value="/getUserByIdx",method=RequestMethod.GET)
+	@ResponseBody
+	public User getUserByIdx(@RequestParam(value="idx") int user_idx) {
+		
+		User user =  new User();
+		user.setUser_idx(user_idx);
+		
+		
+		User res = userService.getUserByIdx(user);
+		
+		return res;
+	}
+	
+	
 	
 	@RequestMapping(value="/getUserByNick",method=RequestMethod.GET)
-	public @ResponseBody User getUserByNick(@RequestParam(value="nick") String nick) {
+	@ResponseBody
+	public User getUserByNick(@RequestParam(value="nick") String nick) {
 		
 		User user =  new User();
 		user.setNick(nick);

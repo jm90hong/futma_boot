@@ -29,6 +29,15 @@
 	</select>
 	
 	
+	
+	<select id="getUserByIdx" parameterType="User" resultType="User">
+		SELECT * 
+		FROM user AS u
+		INNER JOIN manager AS m
+		ON u.user_idx=m.user_idx
+		WHERE u.user_idx=#{user_idx}
+	</select>
+	
 	<select id="getUserByNick" parameterType="User" resultType="User">
 		SELECT *
 		FROM `user`

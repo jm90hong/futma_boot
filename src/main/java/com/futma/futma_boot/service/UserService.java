@@ -13,6 +13,9 @@ public class UserService {
 	UserDao userDao;
 	
 	
+	public User getUserByIdx(User user) {
+		return userDao.getUserByIdx(user);
+	}
 	
 	
 	public int updateMngReqState(User user) {
