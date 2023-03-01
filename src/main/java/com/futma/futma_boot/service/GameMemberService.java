@@ -69,6 +69,7 @@ public class GameMemberService {
 	}
 	
 	
+	
 	public List<GameMember> getByGameIdx(GameMember gm){
 		return gameMemberDao.getByGameIdx(gm);
 	}
