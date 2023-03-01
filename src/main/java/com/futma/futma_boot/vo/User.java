@@ -17,6 +17,7 @@ public class User {
 	private String created_date = null;
 	private int make_cnt=0;
 	private int join_cnt=0;
+	private String text_msg=null;
 	
 	
 	//manager 
@@ -26,8 +27,15 @@ public class User {
 
 	
 	
-
 	
+	
+	
+	public String getText_msg() {
+		return text_msg;
+	}
+	public void setText_msg(String text_msg) {
+		this.text_msg = text_msg;
+	}
 	public int getMake_cnt() {
 		return make_cnt;
 	}
