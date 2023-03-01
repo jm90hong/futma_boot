@@ -3,6 +3,7 @@ package com.futma.futma_boot.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import com.futma.futma_boot.vo.User;
 
 
@@ -12,6 +13,15 @@ public class UserDao {
 	
 	@Autowired
 	SqlSession sqlSession;
+	
+	
+	public int addMakeCnt(User user) {
+		return sqlSession.update("user.addMakeCnt",user);
+	}
+	
+	public int addJoinCnt(User user) {
+		return sqlSession.update("user.addJoinCnt",user);
+	}
 	
 	public User getUserByIdx(User user) {
 		return sqlSession.selectOne("user.getUserByIdx",user);

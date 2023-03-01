@@ -2,6 +2,23 @@
 <mapper namespace="user">	
 	 		
 	 		
+	
+	<update id="addJoinCnt" parameterType="User">
+		UPDATE user
+		SET 
+			join_cnt=join_cnt+#{join_cnt}
+		WHERE 
+			user_idx=#{user_idx}	
+	</update>
+	
+	<update id="addMakeCnt" parameterType="User">
+		UPDATE user
+		SET 
+			make_cnt=make_cnt+#{make_cnt}
+		WHERE 
+			user_idx=#{user_idx}	
+	</update>	
+	
 	 		
 	<update id="updateMngReqState" parameterType="User">
 		UPDATE `user`

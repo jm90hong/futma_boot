@@ -1,7 +1,5 @@
 package com.futma.futma_boot.controller;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.futma.futma_boot.config.MyHttpHeader;
-import com.futma.futma_boot.dao.UserDao;
 import com.futma.futma_boot.service.UserService;
 import com.futma.futma_boot.vo.User;
 
@@ -26,6 +23,11 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	
+	
+
+	
 	
 	
 	@RequestMapping(value="/getUserByIdx",method=RequestMethod.GET)

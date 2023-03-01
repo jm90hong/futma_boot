@@ -15,6 +15,8 @@ public class User {
 	private float star_rank=0;
 	private int reply_cnt=0;
 	private String created_date = null;
+	private int make_cnt=0;
+	private int join_cnt=0;
 	
 	
 	//manager 
@@ -24,9 +26,20 @@ public class User {
 
 	
 	
+
 	
-	
-	
+	public int getMake_cnt() {
+		return make_cnt;
+	}
+	public void setMake_cnt(int make_cnt) {
+		this.make_cnt = make_cnt;
+	}
+	public int getJoin_cnt() {
+		return join_cnt;
+	}
+	public void setJoin_cnt(int join_cnt) {
+		this.join_cnt = join_cnt;
+	}
 	public String getAct_addr1() {
 		return act_addr1;
 	}
