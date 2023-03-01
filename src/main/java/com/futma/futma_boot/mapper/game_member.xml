@@ -19,14 +19,14 @@
 	
 	 		
 	 		
-	 <select id="getByUserIdx" parameterType="GameMember" resultType="GameMember">
+	<select id="getByUserIdx" parameterType="GameMember" resultType="GameMember">
 	 	SELECT * 
 	 	FROM game_member 
 	 	WHERE 
 	 		user_idx=#{user_idx} 
 	 		AND 
 	 		del_ny='n'
-	 </select>
+	</select>
 	 		
 	 <select id="getByGameIdx" parameterType="GameMember" resultType="GameMember">
 	 	SELECT * 
