@@ -41,9 +41,9 @@
 	 
 	 <insert id="add" parameterType="GameMember">
 	 	INSERT INTO game_member
-	 	(game_idx, user_idx, price, pay_ny, del_ny, pay_date, created_date)
+	 	(game_idx, user_idx, name, tel, price, pay_ny, del_ny, pay_date, created_date)
 	 	VALUES
-	 	(#{game_idx}, #{user_idx}, #{price}, #{pay_ny}, 'n', SYSDATE(), SYSDATE())
+	 	(#{game_idx}, #{user_idx}, #{name}, #{tel}, #{price}, #{pay_ny}, 'n', SYSDATE(), SYSDATE())
 	 </insert>
 	 		
 		
@@ -52,10 +52,5 @@
 	 	DELETE FROM game_member
 	 	WHERE game_mem_idx=#{game_mem_idx}
 	 </delete>
-	
-	
-	
-	
-	
 
 </mapper>

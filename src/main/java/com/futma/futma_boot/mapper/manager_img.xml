@@ -14,7 +14,10 @@
 	
 	
 	
-	
+	<delete id="delByMngIdx" parameterType="ManagerImg">
+		DELETE FROM manager_img
+		WHERE manager_idx = #{manager_idx}
+	</delete>
 	
 
 </mapper>

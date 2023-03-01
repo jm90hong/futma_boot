@@ -16,7 +16,6 @@ import com.futma.futma_boot.config.MyHttpHeader;
 import com.futma.futma_boot.service.GameService;
 import com.futma.futma_boot.service.ManagerService;
 import com.futma.futma_boot.vo.Game;
-import com.futma.futma_boot.vo.Manager;
 
 
 @Controller
@@ -33,7 +32,37 @@ public class GameController {
 	@Autowired
 	private ManagerService managerService;
 	
-
+	
+	
+	@RequestMapping(value="getRecentMakeGameByUserIdx",method= {RequestMethod.GET})
+	public @ResponseBody List<Game> getRecentMakeGameByUserIdx(
+				@RequestParam(value="user_idx") int user_idx,
+				@RequestParam(value="cnt") int cnt
+			){
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("user_idx", user_idx);
+		map.put("cnt", cnt);
+		
+		List<Game> list = gameService.getCurrentGameByUserIdx(map);
+		
+		return list;
+	}
+	
+	@RequestMapping(value="getRecentJoinGameByUserIdx",method= {RequestMethod.GET})
+	public @ResponseBody List<Game> getRecentJoinGameByUserIdx(
+				@RequestParam(value="user_idx") int user_idx,
+				@RequestParam(value="cnt") int cnt
+			){
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("user_idx", user_idx);
+		map.put("cnt", cnt);
+		
+		List<Game> list = gameService.getCurrentGameByUserIdx(map);
+		
+		return list;
+	}
 	
 	@RequestMapping(value="getCurrentGameByUserIdx",method= {RequestMethod.GET})
 	public @ResponseBody List<Game> getCurrentGameByUserIdx(
