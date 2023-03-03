@@ -9,8 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.futma.futma_boot.dao.GameDao;
 import com.futma.futma_boot.dao.GameMemberDao;
+import com.futma.futma_boot.dao.UserDao;
 import com.futma.futma_boot.vo.Game;
 import com.futma.futma_boot.vo.GameMember;
+import com.futma.futma_boot.vo.User;
 
 @Service
 public class GameMemberService {
@@ -20,6 +22,9 @@ public class GameMemberService {
 	
 	@Autowired
 	GameDao gameDao;
+	
+	@Autowired
+	UserDao userDao;
 	
 	
 	
@@ -36,6 +41,13 @@ public class GameMemberService {
 	@Transactional
 	public int add(GameMember gm, Game g) {
 		gameDao.updateNowPlayerCnt(g);
+		
+		//increase join cnt +1
+		User user = new User();
+		user.setUser_idx(gm.getUser_idx());
+		user.setJoin_cnt(1);
+		userDao.addJoinCnt(user);
+		
 		return gameMemberDao.add(gm);
 	}
 	
@@ -46,8 +58,16 @@ public class GameMemberService {
 		Game game = new Game();
 		game.setGame_idx(gm.getGame_idx());
 		game.setNow_player_cnt(-1);
+		
+		//decrease join cnt -1
+		User user = new User();
+		user.setUser_idx(gm.getUser_idx());
+		user.setJoin_cnt(-1);
+		userDao.addJoinCnt(user);
+		
 		return gameDao.updateNowPlayerCnt(game);
 	}
+	
 	
 	
 	public List<GameMember> getByGameIdx(GameMember gm){

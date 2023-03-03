@@ -14,6 +14,18 @@ public class UserService {
 	
 	
 	
+	public int addMakeCnt(User user) {
+		return userDao.addMakeCnt(user);
+	}
+	
+	public int addJoinCnt(User user) {
+		return userDao.addJoinCnt(user);
+	}
+	
+	public User getUserByIdx(User user) {
+		return userDao.getUserByIdx(user);
+	}
+	
 	
 	public int updateMngReqState(User user) {
 		return userDao.updateMngReqState(user);

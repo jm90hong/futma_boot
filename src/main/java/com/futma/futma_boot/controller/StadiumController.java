@@ -49,7 +49,7 @@ public class StadiumController {
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
-		if(location.equals("ì „ì²´")) {
+		if(location.equals("ÀüÃ¼")) {
 			map.put("location", null);
 		}else {
 			map.put("location", location);
