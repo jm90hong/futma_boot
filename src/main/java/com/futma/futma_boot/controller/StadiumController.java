@@ -34,9 +34,6 @@ public class StadiumController {
 		stadium.setStadium_idx(stadium_idx);
 		
 		
-		
-		
-		
 		return stadiumService.getByIdx(stadium);
 	}
 	
