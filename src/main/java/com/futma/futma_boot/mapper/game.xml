@@ -12,6 +12,16 @@
 	 </update>
 	 
 	 
+	 <select id="getCurrentGameByUserIdxWithLimit" parameterType="HashMap" resultType="Game">
+	 	SELECT * 
+	 	FROM game as g 
+	 	INNER JOIN stadium as s
+	 	ON g.stadium_idx = s.stadium_idx
+	 	WHERE 
+	 		g.user_idx=#{user_idx} 
+	 	LIMIT 0, #{cnt}
+	 </select>
+	 
 	 <select id="getCurrentGameByUserIdx" parameterType="HashMap" resultType="Game">
 	 	SELECT * 
 	 	FROM game as g 

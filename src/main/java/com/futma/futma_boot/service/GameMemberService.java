@@ -29,6 +29,10 @@ public class GameMemberService {
 	
 	
 	
+	public List<Game> getCurrentJoinedGameByUserIdxWithLimit(HashMap<String, Object> map){
+		return gameMemberDao.getCurrentJoinedGameByUserIdxWithLimit(map);
+	}
+	
 	public List<Game> getCurrentJoinedGameByUserIdx(HashMap<String, Object> map){
 		return gameMemberDao.getCurrentJoinedGameByUserIdx(map);
 	}

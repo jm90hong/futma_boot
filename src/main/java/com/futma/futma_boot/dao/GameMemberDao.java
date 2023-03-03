@@ -20,6 +20,12 @@ public class GameMemberDao {
 	SqlSession sqlSession;
 	
 	
+	
+	
+	public List<Game> getCurrentJoinedGameByUserIdxWithLimit(HashMap<String, Object> map){
+		return sqlSession.selectList("game_member.getCurrentJoinedGameByUserIdxWithLimit", map);
+	}
+	
 	public List<Game> getCurrentJoinedGameByUserIdx(HashMap<String, Object> map){
 		return sqlSession.selectList("game_member.getCurrentJoinedGameByUserIdx", map);
 	}
