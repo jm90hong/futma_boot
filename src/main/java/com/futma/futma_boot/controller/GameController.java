@@ -35,16 +35,16 @@ public class GameController {
 	
 	
 	
-	
+	//game made by user
 	@RequestMapping(value="getCurrentGameByUserIdxWithLimit",method= {RequestMethod.GET})
 	public @ResponseBody List<Game> getCurrentGameByUserIdxWithLimit(
 				@RequestParam(value="user_idx") int user_idx,
-				@RequestParam(value="cnt") int nowTimeMill
+				@RequestParam(value="cnt") int cnt
 			){
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("user_idx", user_idx);
-		map.put("now_time_mill", nowTimeMill);
+		map.put("cnt", cnt);
 		
 		List<Game> list = gameService.getCurrentGameByUserIdxWithLimit(map);
 		

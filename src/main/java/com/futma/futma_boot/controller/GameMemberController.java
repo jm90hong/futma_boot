@@ -33,6 +33,8 @@ public class GameMemberController {
 	private GameMemberService gameMemberService;
 	
 	
+	
+	//game joined by user
 	@GetMapping("getCurrentJoinedGameByUserIdxWithLimit")
 	public @ResponseBody List<Game> getCurrentJoinedGameByUserIdxWithLimit(
 				@RequestParam(value="user_idx") int user_idx,

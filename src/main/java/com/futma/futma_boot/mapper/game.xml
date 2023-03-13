@@ -19,7 +19,8 @@
 	 	INNER JOIN stadium as s
 	 	ON g.stadium_idx = s.stadium_idx
 	 	WHERE 
-	 		g.user_idx=#{user_idx} 
+	 		g.user_idx=#{user_idx}
+ 		ORDER BY g.game_idx DESC	 
 	 	LIMIT 0, #{cnt}
 	 </select>
 	 
