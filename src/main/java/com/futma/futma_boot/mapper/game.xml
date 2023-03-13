@@ -12,6 +12,7 @@
 	 </update>
 	 
 	 
+	 
 	 <select id="getCurrentGameByUserIdxWithLimit" parameterType="HashMap" resultType="Game">
 	 	SELECT * 
 	 	FROM game as g 
