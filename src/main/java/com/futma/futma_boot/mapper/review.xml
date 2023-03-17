@@ -1,0 +1,38 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review">	
+	 		
+	
+	
+	
+	 <insert id="save" parameterType="Review">
+	 	INSERT INTO review
+	 	(wr_user_idx, rv_user_idx, star, content, reply, created_date)
+	 	VALUES
+	 	(#{wr_user_idx}, #{rv_user_idx}, #{star}, #{content}, #{reply}, SYSDATE())
+	 </insert>
+	 		
+		
+		
+		
+	 <select id="findByRvUserIdx" parameterType="HashMap" resultType="Review">
+	 	SELECT * FROM review AS r
+	 	INNER JOIN user AS u
+	 	ON r.rv_user_idx= u.user_idx
+	 	WHERE rv_user_idx=#{user_idx}
+	 	ORDER BY rv_idx DESC
+	 	LIMIT #{start},#{cnt}
+	 </select>	
+	 
+	 
+	 <select id="findByWrUserIdx" parameterType="HashMap" resultType="Review">
+	 	SELECT * FROM review AS r
+	 	INNER JOIN user AS u
+	 	ON r.wr_user_idx= u.user_idx
+	 	WHERE rv_user_idx=#{user_idx}
+	 	ORDER BY rv_idx DESC
+	 	LIMIT #{start},#{cnt}
+	 </select>
+	
+	
+
+</mapper>

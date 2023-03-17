@@ -1,7 +1,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">	
 	 		
-	 		
+	 	
+	 	
+	 	
+	 	
+	<update id="updateWithReview_add" parameterType="User">
+		UPDATE user
+		SET
+			review_cnt=review_cnt+1,
+			star_rank=#{star_rank}
+		WHERE
+			user_idx=#{user_idx}	
+	</update>
 	
 	<update id="addJoinCnt" parameterType="User">
 		UPDATE user

@@ -13,6 +13,9 @@ public class UserService {
 	UserDao userDao;
 	
 	
+	public int updateWithReview_add(User user) {
+		return userDao.updateWithReview_add(user);
+	}
 	
 	public int addMakeCnt(User user) {
 		return userDao.addMakeCnt(user);
