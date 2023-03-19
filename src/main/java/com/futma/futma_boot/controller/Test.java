@@ -9,6 +9,7 @@ public class Test {
 		int reviewCnt=10;
 		int oneStar =5;
 		
+		
 		float r = ((totalStar*reviewCnt)+oneStar)/(reviewCnt+1);
 		System.out.println(Math.round(r*10)/10.0);
 	}
