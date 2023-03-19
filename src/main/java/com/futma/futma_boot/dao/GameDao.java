@@ -23,6 +23,10 @@ public class GameDao{
 		return sqlSession.update("game.updateNowPlayerCnt",game);
 	}
 	
+	public List<Game> getCurrentGameByUserIdxWithLimit(HashMap<String, Object> map){
+		return sqlSession.selectList("game.getCurrentGameByUserIdxWithLimit",map);
+	}
+	
 	public List<Game> getCurrentGameByUserIdx(HashMap<String, Object> map){
 		return sqlSession.selectList("game.getCurrentGameByUserIdx",map);
 	}

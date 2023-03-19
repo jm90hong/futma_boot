@@ -3,6 +3,19 @@
 	 		
 	
 	
+	<select id="getCurrentJoinedGameByUserIdxWithLimit"  parameterType="HashMap" resultType="Game">
+		SELECT g.*, s.*, gm.pay_ny, gm.del_ny, gm.pay_date
+	 	FROM game_member AS gm
+	 	INNER JOIN game AS g
+	 	ON gm.game_idx = g.game_idx
+	 	INNER JOIN stadium AS s
+	 	ON g.stadium_idx = s.stadium_idx
+	 	WHERE 
+	 		gm.user_idx = #{user_idx}
+	 	ORDER BY gm.game_mem_idx DESC	
+	 	LIMIT 0, #{cnt}	
+	</select>
+	
 	
 	<select id="getCurrentJoinedGameByUserIdx"  parameterType="HashMap" resultType="Game">
 		SELECT g.*, s.*, gm.pay_ny, gm.del_ny, gm.pay_date 

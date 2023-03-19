@@ -1,3 +1,4 @@
+
 package com.futma.futma_boot.controller;
 
 import java.util.HashMap;
@@ -34,9 +35,6 @@ public class StadiumController {
 		stadium.setStadium_idx(stadium_idx);
 		
 		
-		
-		
-		
 		return stadiumService.getByIdx(stadium);
 	}
 	
@@ -52,7 +50,7 @@ public class StadiumController {
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
-		if(location.equals("ÀüÃ¼")) {
+		if(location.equals("ì „ì²´")) {
 			map.put("location", null);
 		}else {
 			map.put("location", location);

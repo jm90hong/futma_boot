@@ -34,8 +34,10 @@ public class GameController {
 	
 	
 	
-	@RequestMapping(value="getRecentMakeGameByUserIdx",method= {RequestMethod.GET})
-	public @ResponseBody List<Game> getRecentMakeGameByUserIdx(
+	
+	//game made by user
+	@RequestMapping(value="getCurrentGameByUserIdxWithLimit",method= {RequestMethod.GET})
+	public @ResponseBody List<Game> getCurrentGameByUserIdxWithLimit(
 				@RequestParam(value="user_idx") int user_idx,
 				@RequestParam(value="cnt") int cnt
 			){
@@ -44,25 +46,12 @@ public class GameController {
 		map.put("user_idx", user_idx);
 		map.put("cnt", cnt);
 		
-		List<Game> list = gameService.getCurrentGameByUserIdx(map);
+		List<Game> list = gameService.getCurrentGameByUserIdxWithLimit(map);
 		
 		return list;
 	}
 	
-	@RequestMapping(value="getRecentJoinGameByUserIdx",method= {RequestMethod.GET})
-	public @ResponseBody List<Game> getRecentJoinGameByUserIdx(
-				@RequestParam(value="user_idx") int user_idx,
-				@RequestParam(value="cnt") int cnt
-			){
-		
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("user_idx", user_idx);
-		map.put("cnt", cnt);
-		
-		List<Game> list = gameService.getCurrentGameByUserIdx(map);
-		
-		return list;
-	}
+	
 	
 	@RequestMapping(value="getCurrentGameByUserIdx",method= {RequestMethod.GET})
 	public @ResponseBody List<Game> getCurrentGameByUserIdx(

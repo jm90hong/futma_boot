@@ -34,6 +34,24 @@ public class GameMemberController {
 	
 	
 	
+	//game joined by user
+	@GetMapping("getCurrentJoinedGameByUserIdxWithLimit")
+	public @ResponseBody List<Game> getCurrentJoinedGameByUserIdxWithLimit(
+				@RequestParam(value="user_idx") int user_idx,
+				@RequestParam(value="cnt") int cnt
+				
+			){
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("user_idx", user_idx);
+		map.put("cnt", cnt);
+		
+		List<Game> list = gameMemberService.getCurrentJoinedGameByUserIdxWithLimit(map);
+		
+		return list;
+	}
+	
+	
 	
 	@GetMapping("getCurrentJoinedGameByUserIdx")
 	public @ResponseBody List<Game> getCurrentJoinedGameByUserIdx(

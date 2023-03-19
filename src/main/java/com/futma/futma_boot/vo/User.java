@@ -13,7 +13,7 @@ public class User {
 	private String manager_ny=null;
 	private String mng_req_state=null;
 	private float star_rank=0;
-	private int reply_cnt=0;
+	private int review_cnt=0;
 	private String created_date = null;
 	private int make_cnt=0;
 	private int join_cnt=0;
@@ -28,8 +28,12 @@ public class User {
 	
 	
 	
-	
-	
+	public int getReview_cnt() {
+		return review_cnt;
+	}
+	public void setReview_cnt(int review_cnt) {
+		this.review_cnt = review_cnt;
+	}
 	public String getText_msg() {
 		return text_msg;
 	}
@@ -78,12 +82,7 @@ public class User {
 	public void setStar_rank(float star_rank) {
 		this.star_rank = star_rank;
 	}
-	public int getReply_cnt() {
-		return reply_cnt;
-	}
-	public void setReply_cnt(int reply_cnt) {
-		this.reply_cnt = reply_cnt;
-	}
+	
 	public String getImage_url() {
 		return image_url;
 	}

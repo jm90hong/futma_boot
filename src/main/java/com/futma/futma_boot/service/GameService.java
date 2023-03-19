@@ -25,8 +25,11 @@ public class GameService {
 	
 	
 	
+	public List<Game> getCurrentGameByUserIdxWithLimit(HashMap<String, Object> map) {
+		return gameDao.getCurrentGameByUserIdxWithLimit(map);
+	}
 	
-
+	
 	public List<Game> getCurrentGameByUserIdx(HashMap<String, Object> map) {
 		return gameDao.getCurrentGameByUserIdx(map);
 	}

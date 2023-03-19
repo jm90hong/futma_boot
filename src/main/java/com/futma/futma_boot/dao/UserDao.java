@@ -15,6 +15,10 @@ public class UserDao {
 	SqlSession sqlSession;
 	
 	
+	public int updateWithReview_add(User user) {
+		return sqlSession.update("user.updateWithReview_add",user);
+	}
+	
 	public int addMakeCnt(User user) {
 		return sqlSession.update("user.addMakeCnt",user);
 	}
