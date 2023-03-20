@@ -1,0 +1,29 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user_like">	
+	 		
+	
+	
+	 <select id="findByFanUserIdx" parameterType="Integer" resultType="UserLike">
+	 	SELECT * FROM user_like
+	 	WHERE 
+	 		fan_user_idx=#{fan_user_idx} 
+	 </select>
+	 
+	 
+	 <delete id="delete" parameterType="Integer">
+	 	DELETE FROM user_like
+	 	WHERE u_like_idx=#{u_like_idx}
+	 </delete>
+	 
+	 <insert id="save" parameterType="UserLike">
+	 	INSERT INTO user_like
+	 	(star_user_idx, fan_user_idx,created_date)
+	 	VALUES
+	 	(#{star_user_idx}, #{fan_user_idx}, SYSDATE())
+	 </insert>
+	 		
+		
+	
+	 
+
+</mapper>
