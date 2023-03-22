@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.futma.futma_boot.config.MyHttpHeader;
 import com.futma.futma_boot.service.ManagerImgService;
 import com.futma.futma_boot.service.ManagerService;
 import com.futma.futma_boot.service.UserService;
@@ -108,7 +109,7 @@ public class ManagerController {
 			userService.updateMngReqState(user);
 			
 			transactionManager.commit(status);
-			return "ok";
+			return MyHttpHeader.SUCCESS;
 			
 		}catch(Exception e) {
 			transactionManager.rollback(status);

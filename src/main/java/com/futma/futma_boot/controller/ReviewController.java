@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.futma.futma_boot.config.MyHttpHeader;
 import com.futma.futma_boot.service.ReviewService;
 import com.futma.futma_boot.vo.Review;
 
@@ -20,6 +21,7 @@ public class ReviewController {
 	
 	@Autowired
 	ReviewService reviewService;
+	
 	
 	
 	@PostMapping("save")
@@ -39,7 +41,7 @@ public class ReviewController {
 		
 		reviewService.save(rv);
 		
-		return "ok";
+		return MyHttpHeader.SUCCESS;
 	}
 	
 	

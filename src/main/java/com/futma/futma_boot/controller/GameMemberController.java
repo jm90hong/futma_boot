@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.futma.futma_boot.config.MyHttpHeader;
 import com.futma.futma_boot.service.GameMemberService;
 import com.futma.futma_boot.service.GameService;
 import com.futma.futma_boot.vo.Game;
@@ -114,7 +115,7 @@ public class GameMemberController {
 		gameMemberService.delMember(gm);
 		
 		
-		return "ok";
+		return MyHttpHeader.SUCCESS;
 	}
 	
 	
@@ -151,7 +152,7 @@ public class GameMemberController {
 			//set now_player_cnt 1
 			game.setNow_player_cnt(1);
 			gameMemberService.add(pm,game);
-			return "ok";
+			return MyHttpHeader.SUCCESS;
 		}else {
 			return "over";
 		}

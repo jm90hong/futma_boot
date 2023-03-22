@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.futma.futma_boot.config.MyHttpHeader;
 import com.futma.futma_boot.service.UserLikeService;
 import com.futma.futma_boot.vo.UserLike;
 
@@ -32,7 +33,7 @@ public class UserLikeController {
 				@RequestParam(value="u_like_idx") int u_like_idx
 			) {
 		userLikeService.delete(u_like_idx);
-		return "ok";
+		return MyHttpHeader.SUCCESS;
 	}
 	
 	
@@ -53,7 +54,7 @@ public class UserLikeController {
 		
 		userLikeService.save(userLike);
 		
-		return "ok";
+		return MyHttpHeader.SUCCESS;
 	}
 
 	
