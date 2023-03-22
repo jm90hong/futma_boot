@@ -120,6 +120,7 @@ public class GameMemberController {
 	
 	
 	
+	
 	@PostMapping("add")
 	public @ResponseBody String add(
 				@RequestParam(value="game_idx") long game_idx,
