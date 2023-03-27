@@ -18,8 +18,8 @@
 	 	SELECT * FROM review AS r
 	 	INNER JOIN user AS u
 	 	ON r.rv_user_idx= u.user_idx
-	 	WHERE rv_user_idx=#{user_idx}
-	 	ORDER BY rv_idx DESC
+	 	WHERE r.rv_user_idx=#{user_idx}
+	 	ORDER BY r.rv_idx DESC
 	 	LIMIT #{start},#{cnt}
 	 </select>	
 	 
@@ -28,8 +28,8 @@
 	 	SELECT * FROM review AS r
 	 	INNER JOIN user AS u
 	 	ON r.wr_user_idx= u.user_idx
-	 	WHERE rv_user_idx=#{user_idx}
-	 	ORDER BY rv_idx DESC
+	 	WHERE r.wr_user_idx=#{user_idx}
+	 	ORDER BY r.wr_idx DESC
 	 	LIMIT #{start},#{cnt}
 	 </select>
 	
