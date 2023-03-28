@@ -4,7 +4,7 @@
 	
 	
 	
-	 <insert id="save" parameterType="Review">
+	 <insert id="save" parameterType="Review" useGeneratedKeys="true" keyProperty="rv_idx">
 	 	INSERT INTO review
 	 	(wr_user_idx, rv_user_idx, star, content, reply, created_date)
 	 	VALUES
@@ -20,7 +20,7 @@
 	 	ON r.rv_user_idx= u.user_idx
 	 	WHERE r.rv_user_idx=#{user_idx}
 	 	ORDER BY r.rv_idx DESC
-	 	LIMIT #{start},#{cnt}
+	 	LIMIT #{start}, #{cnt}
 	 </select>	
 	 
 	 
@@ -30,7 +30,7 @@
 	 	ON r.wr_user_idx= u.user_idx
 	 	WHERE r.wr_user_idx=#{user_idx}
 	 	ORDER BY r.wr_idx DESC
-	 	LIMIT #{start},#{cnt}
+	 	LIMIT #{start}, #{cnt}
 	 </select>
 	
 	

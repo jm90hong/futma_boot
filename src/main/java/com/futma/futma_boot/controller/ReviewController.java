@@ -25,7 +25,7 @@ public class ReviewController {
 	
 	
 	@PostMapping("save")
-	public String save(
+	public int save(
 			
 				@RequestParam(value="wr_uidx") int wr_user_idx,
 				@RequestParam(value="rv_uidx") int rv_user_idx,
@@ -41,7 +41,9 @@ public class ReviewController {
 		
 		reviewService.save(rv);
 		
-		return MyHttpHeader.SUCCESS;
+		
+		
+		return rv.getRv_idx();
 	}
 	
 	
