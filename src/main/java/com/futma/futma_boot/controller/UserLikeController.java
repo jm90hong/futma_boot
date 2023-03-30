@@ -42,7 +42,7 @@ public class UserLikeController {
 	
 	
 	@PostMapping("save")
-	public String save(
+	public long save(
 				@RequestParam(value="s_uidx") int star_user_idx,
 				@RequestParam(value="f_uidx") int fan_user_idx
 			) {
@@ -54,7 +54,7 @@ public class UserLikeController {
 		
 		userLikeService.save(userLike);
 		
-		return MyHttpHeader.SUCCESS;
+		return userLike.getU_like_idx();
 	}
 
 	

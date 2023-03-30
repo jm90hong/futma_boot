@@ -15,7 +15,7 @@
 	 	WHERE u_like_idx=#{u_like_idx}
 	 </delete>
 	 
-	 <insert id="save" parameterType="UserLike">
+	 <insert id="save" parameterType="UserLike"  useGeneratedKeys="true" keyProperty="u_like_idx">
 	 	INSERT INTO user_like
 	 	(star_user_idx, fan_user_idx,created_date)
 	 	VALUES
