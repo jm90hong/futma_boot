@@ -44,6 +44,10 @@ public class GameService {
 		return gameDao.getByIdx(game);
 	}
 	
+	public List<Game> getByUserIdxList(Map<String, Object> map){
+		return gameDao.getByUserIdxList(map);
+	}
+	
 	public List<Game> search(Map<String, Object> map){
 		return gameDao.search(map);
 	}

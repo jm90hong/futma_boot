@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,6 +34,25 @@ public class GameController {
 	private ManagerService managerService;
 	
 	
+	
+	
+	@GetMapping("getByUserIdxList")
+	@ResponseBody
+	public List<Game> getByUserIdxList(
+				@RequestParam(value="idxs") List<Integer> list,
+				@RequestParam(value="ntm", defaultValue="0") long nowTimeMill
+			) {
+		
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_idx_list", list);
+		map.put("ntm",nowTimeMill);
+		
+		
+		List<Game> games = gameService.getByUserIdxList(map);
+		
+		return games;
+	}
 	
 	
 	//game made by user

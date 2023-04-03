@@ -61,7 +61,26 @@
 	 	WHERE g.game_idx=#{game_idx}
 	 </select>		
 	 		
-	 		
+	 
+	 <select id="getByUserIdxList"  parameterType="HashMap" resultType="Game">
+	 	SELECT * 
+	 	FROM game as g 
+	 	INNER JOIN user as u
+	 	ON g.user_idx = u.user_idx
+	 	INNER JOIN stadium as s
+	 	ON g.stadium_idx = s.stadium_idx
+	 	<trim prefix="WHERE" suffixOverrides="WHERE" prefixOverrides="AND | OR">
+	 		<if test="user_idx_list.size != 0">
+	 			AND g.user_idx IN
+	 			<foreach item="item" index="index" collection="user_idx_list" open="(" separator="," close=")">
+		        	#{item}
+		  		</foreach>
+	 		</if>
+	 		AND g.del_ny='n'
+	 		AND start_time_mill>#{ntm}
+	 	</trim>
+	 	ORDER BY g.game_idx DESC
+	 </select>		
 		
 	 		
 	 <select id="search" parameterType="HashMap" resultType="Game">
@@ -99,7 +118,7 @@
 		        	#{item}
 		  		</foreach>
 	 		</if>
-	 		AND del_ny='n'
+	 		AND g.del_ny='n'
 	 	</trim>
 	 	ORDER BY g.game_idx DESC
 	 	LIMIT #{s},#{c}

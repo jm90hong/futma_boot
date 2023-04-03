@@ -43,6 +43,10 @@ public class GameDao{
 		return sqlSession.selectList("game.search", map);
 	}
 	
+	public List<Game> getByUserIdxList(Map<String, Object> map){
+		return sqlSession.selectList("game.getByUserIdxList", map);
+	}
+	
 	
 	public int add(Game game) {
 		return sqlSession.insert("game.add",game);
