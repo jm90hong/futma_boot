@@ -41,7 +41,7 @@ public class ReviewService {
 		newUser.setStar_rank(value); 
 		newUser.setUser_idx(reviewedUser.getUser_idx());
 		
-		
+		//리뷰 추가
 		userDao.updateWithReview_add(newUser);
 		
 		return reviewDao.save(rv);

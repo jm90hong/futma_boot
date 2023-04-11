@@ -38,6 +38,8 @@ public class Game {
 	//user
 	private String nick = null;
 	private String image_url=null;
+	private float star_rank=0;
+	private int review_cnt=0;
 	
 	
 	
@@ -48,6 +50,22 @@ public class Game {
 
 
 	
+	public float getStar_rank() {
+		return star_rank;
+	}
+
+	public void setStar_rank(float star_rank) {
+		this.star_rank = star_rank;
+	}
+
+	public int getReview_cnt() {
+		return review_cnt;
+	}
+
+	public void setReview_cnt(int review_cnt) {
+		this.review_cnt = review_cnt;
+	}
+
 	public String getBank_name() {
 		return bank_name;
 	}
