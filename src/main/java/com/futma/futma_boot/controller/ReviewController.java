@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.futma.futma_boot.config.MyHttpHeader;
+import com.futma.futma_boot.dao.ReviewDao;
 import com.futma.futma_boot.service.ReviewService;
 import com.futma.futma_boot.vo.Review;
 
@@ -47,6 +48,25 @@ public class ReviewController {
 	}
 	
 	
+	
+	
+	@PostMapping("updateReply")
+	public String updateReply(
+				@RequestParam(value="rv_idx") int rv_idx,
+				@RequestParam(value="reply") String reply
+			) {
+		
+		
+		Review rv = new Review();
+		rv.setRv_idx(rv_idx);
+		rv.setReply(reply);;
+		
+		reviewService.updateReply(rv);
+		
+		
+		return "ok";
+		
+	}	
 	
 	
 	@GetMapping("findByRvUserIdx")

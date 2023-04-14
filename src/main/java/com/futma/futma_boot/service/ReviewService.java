@@ -21,6 +21,15 @@ public class ReviewService {
 	@Autowired
 	UserDao userDao;
 	
+	
+	
+	
+	
+	public int updateReply(Review rv){
+		return reviewDao.updateReply(rv);
+	}
+	
+	
 	@Transactional
 	public int save(Review rv) {
 		

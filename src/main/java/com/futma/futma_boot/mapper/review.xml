@@ -11,7 +11,13 @@
 	 	(#{wr_user_idx}, #{rv_user_idx}, #{star}, #{content}, #{reply}, SYSDATE())
 	 </insert>
 	 		
-		
+	 <update id="updateReply" parameterType="Review" >
+	 	UPDATE review
+	 	SET
+	 		reply=#{reply}
+	 	WHERE 
+	 		rv_idx=#{rv_idx}	
+	 </update>	
 		
 		
 	 <select id="findByRvUserIdx" parameterType="HashMap" resultType="Review">

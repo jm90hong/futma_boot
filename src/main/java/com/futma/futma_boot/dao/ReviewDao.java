@@ -17,6 +17,11 @@ public class ReviewDao {
 	SqlSession sqlSession;
 	
 	
+	
+	public int updateReply(Review rv){
+		return sqlSession.update("review.updateReply",rv);
+	}
+	
 	public int save(Review rv) {
 		return sqlSession.insert("review.save",rv);
 	}
