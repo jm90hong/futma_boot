@@ -10,10 +10,7 @@
 		(#{mng_idx}, #{img_url}, SYSDATE())
 	</insert>	
 	
-	
-	
-	
-	
+
 	<delete id="delByMngIdx" parameterType="ManagerImg">
 		DELETE FROM manager_img
 		WHERE mng_idx = #{mng_idx}
