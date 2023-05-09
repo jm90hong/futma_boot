@@ -92,7 +92,7 @@ public class ManagerController {
 			
 			//delete existing manager images
 			ManagerImg mi = new ManagerImg();
-			mi.setManager_idx(new_manager_idx);
+			mi.setMng_idx(new_manager_idx);
 			managerImgService.delByMngIdx(mi);
 			
 			for(int i=0;i<imgs.size();i++) {

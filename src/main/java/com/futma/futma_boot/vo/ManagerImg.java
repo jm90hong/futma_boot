@@ -2,7 +2,7 @@ package com.futma.futma_boot.vo;
 
 public class ManagerImg {
 	private int mng_img_idx=0;
-	private int manager_idx=0;
+	private int mng_idx=0;
 	private String img_url=null;
 	private String created_date=null;
 	public int getMng_img_idx() {
@@ -11,11 +11,11 @@ public class ManagerImg {
 	public void setMng_img_idx(int mng_img_idx) {
 		this.mng_img_idx = mng_img_idx;
 	}
-	public int getManager_idx() {
-		return manager_idx;
+	public int getMng_idx() {
+		return mng_idx;
 	}
-	public void setManager_idx(int manager_idx) {
-		this.manager_idx = manager_idx;
+	public void setMng_idx(int mng_idx) {
+		this.mng_idx = mng_idx;
 	}
 	public String getImg_url() {
 		return img_url;

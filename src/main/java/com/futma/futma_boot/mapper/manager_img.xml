@@ -5,9 +5,9 @@
 	 		
 	<insert id="add" parameterType="ManagerImg">
 		INSERT INTO `manager_img`
-		(manager_idx, img_url, created_date)
+		(mng_idx, img_url, created_date)
 		VALUES
-		(#{manager_idx}, #{img_url}, SYSDATE())
+		(#{mng_idx}, #{img_url}, SYSDATE())
 	</insert>	
 	
 	
@@ -16,7 +16,7 @@
 	
 	<delete id="delByMngIdx" parameterType="ManagerImg">
 		DELETE FROM manager_img
-		WHERE manager_idx = #{manager_idx}
+		WHERE mng_idx = #{mng_idx}
 	</delete>
 	
 
