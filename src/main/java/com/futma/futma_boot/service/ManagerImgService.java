@@ -1,5 +1,7 @@
 package com.futma.futma_boot.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,10 @@ public class ManagerImgService {
 	
 	public int add(ManagerImg mi) {
 		return managerImgDao.add(mi);
+	}
+	
+	public List<ManagerImg> fidnByMngIdx(int mng_idx){
+		return managerImgDao.fidnByMngIdx(mng_idx);
 	}
 	
 }

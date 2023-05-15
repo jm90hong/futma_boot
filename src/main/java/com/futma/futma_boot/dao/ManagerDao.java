@@ -20,4 +20,8 @@ public class ManagerDao{
 		return sqlSession.insert("manager.add",manager);
 	}
 	
+	public int update(Manager manager) {	
+		return sqlSession.update("manager.update",manager);
+	}
+	
 }

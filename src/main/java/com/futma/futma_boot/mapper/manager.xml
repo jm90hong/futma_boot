@@ -6,9 +6,28 @@
 	 		
 	<select id="findByUserIdx" parameterType="Long" resultType="Manager">
 		SELECT * FROM manager
-		WGERE user_idx=#{user_idx}
+		WHERE user_idx=#{user_idx}
 	</select> 		
 	 
+	 
+	<update id="update" parameterType="Manager">
+		UPDATE user
+		SET
+			user_idx=#{user_idx},
+			name=#{name},
+			birth=#{birth}, 
+			address=#{address}, 
+			content=#{content}, 
+			act_addr1=#{act_addr1}, 
+			act_addr2=#{act_addr2}, 
+			owner_ny=#{owner_ny}, 
+			kakao_pay_link=#{kakao_pay_link}, 
+			bank_name=#{bank_name},
+			bank_account=#{bank_account},
+			created_date=SYSDATE()
+		WHERE
+			mng_idx=#{mng_idx}	
+	</update> 
 	 		
 	<insert id="add" parameterType="Manager" useGeneratedKeys="true" keyProperty="mng_idx">
 		INSERT INTO `manager`

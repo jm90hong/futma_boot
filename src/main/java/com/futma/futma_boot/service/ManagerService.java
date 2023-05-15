@@ -22,4 +22,9 @@ public class ManagerService {
 		return managerDao.add(manager);
 	}
 	
+	public int update(Manager manager) {	
+		return managerDao.update(manager);
+	}
+	
+	
 }
