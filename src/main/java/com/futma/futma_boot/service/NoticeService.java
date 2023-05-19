@@ -17,6 +17,10 @@ public class NoticeService {
 	
 	
 	
+	public int updateViewCnt(Notice notice) {
+		return noticeDao.updateViewCnt(notice);
+	}
+	
 	public List<Notice> getAll() {
 		return noticeDao.getAll();
 	}

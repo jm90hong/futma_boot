@@ -16,6 +16,11 @@ public class NoticeDao {
 	SqlSession s;
 	
 	
+	public int updateViewCnt(Notice notice) {
+		return s.update("notice.updateViewCnt",notice);
+	}
+	
+	
 	public List<Notice> getAll() {
 		return s.selectList("notice.findAll");
 	}

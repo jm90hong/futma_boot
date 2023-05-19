@@ -11,6 +11,7 @@ public class Notice {
 	private int view_cnt=0;
 	private String created_date=null;
 	
+	
 	public int getNt_idx() {
 		return nt_idx;
 	}

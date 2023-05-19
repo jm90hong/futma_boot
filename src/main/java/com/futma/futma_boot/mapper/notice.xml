@@ -9,6 +9,15 @@
 	 		
 	 <select id="findAll" resultType="Notice">
 	 	SELECT * FROM notice
+	 	ORDER BY nt_idx DESC
 	 </select>
+	 
+	 <update id="updateViewCnt" parameterType="Notice">
+		UPDATE notice
+		SET 
+			view_cnt=view_cnt+#{view_cnt}
+		WHERE 
+			nt_idx=#{nt_idx}	
+	 </update>
 
 </mapper>
