@@ -11,7 +11,7 @@
 	 
 	 
 	<update id="update" parameterType="Manager">
-		UPDATE user
+		UPDATE `manager`
 		SET
 			user_idx=#{user_idx},
 			name=#{name},
