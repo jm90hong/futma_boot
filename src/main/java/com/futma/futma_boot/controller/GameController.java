@@ -119,7 +119,8 @@ public class GameController {
 	
 
 	@RequestMapping(value="getByIdx",method= {RequestMethod.GET})
-	public @ResponseBody Game getByIdx(
+	@ResponseBody
+	public Game getByIdx(
 				@RequestParam(value="game_idx") long game_idx
 			){
 		

@@ -15,6 +15,10 @@ public class UserDao {
 	SqlSession sqlSession;
 	
 	
+	public int updateRequiredInfo(User user) {
+		return sqlSession.update("user.updateRequiredInfo",user);
+	}
+	
 	public int updateWithReview_add(User user) {
 		return sqlSession.update("user.updateWithReview_add",user);
 	}

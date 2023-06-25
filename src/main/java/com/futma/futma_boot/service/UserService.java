@@ -13,6 +13,10 @@ public class UserService {
 	UserDao userDao;
 	
 	
+	public int updateRequiredInfo(User user) {
+		return userDao.updateRequiredInfo(user);
+	}
+	
 	public int updateWithReview_add(User user) {
 		return userDao.updateWithReview_add(user);
 	}

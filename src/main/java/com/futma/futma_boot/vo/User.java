@@ -6,6 +6,7 @@ public class User {
 	private long user_idx=0;
 	private String id = null;
 	private String login_type = null;
+	private String u_name = null;
 	private String nick=null;
 	private String tel=null;
 	private String image_url=null;
@@ -28,6 +29,12 @@ public class User {
 	
 	
 	
+	public String getU_name() {
+		return u_name;
+	}
+	public void setU_name(String u_name) {
+		this.u_name = u_name;
+	}
 	public int getReview_cnt() {
 		return review_cnt;
 	}

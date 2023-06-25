@@ -1,11 +1,13 @@
 package com.futma.futma_boot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.futma.futma_boot.config.MyHttpHeader;
 import com.futma.futma_boot.service.UserService;
@@ -13,7 +15,7 @@ import com.futma.futma_boot.vo.User;
 
 
 
-@Controller()
+@RestController
 @RequestMapping("user")
 public class UserController {
 	
@@ -25,12 +27,28 @@ public class UserController {
 	private UserService userService;
 	
 	
+	@PostMapping("updateReqInf")
+	public String updateReqInf(
+				@RequestParam(value="uidx") int user_idx,
+				@RequestParam(value="nick") String nick,
+				@RequestParam(value="name") String name,
+				@RequestParam(value="tel") String tel
+			) {
+		
+		
+		User user = new User();
+		user.setUser_idx(user_idx);
+		user.setNick(nick);
+		user.setU_name(name);
+		user.setTel(tel);
+		
+		userService.updateRequiredInfo(user);
+		
+		return "ok";
+	}
 	
-
 	
-	
-	
-	@RequestMapping(value="/getUserByIdx",method=RequestMethod.GET)
+	@GetMapping("/getUserByIdx")
 	@ResponseBody
 	public User getUserByIdx(@RequestParam(value="idx") int user_idx) {
 		

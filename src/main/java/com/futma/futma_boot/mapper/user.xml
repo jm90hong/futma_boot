@@ -3,7 +3,15 @@
 	 		
 	 	
 	 	
-	 	
+	<update id="updateRequiredInfo" parameterType="User">
+		UPDATE user
+		SET
+			nick=#{nick},
+			name=#{name},
+			tel=#{tel}
+		WHERE
+			user_idx=#{user_idx}	
+	</update> 	
 	 	
 	<update id="updateWithReview_add" parameterType="User">
 		UPDATE user

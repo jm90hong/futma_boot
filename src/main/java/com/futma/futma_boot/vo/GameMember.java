@@ -4,8 +4,7 @@ public class GameMember {
 	private int game_mem_idx=0;
 	private long game_idx=0;
 	private int user_idx=0;
-	private String name=null;
-	private String tel=null;
+	
 	
 	private int price=0;
 	
@@ -20,6 +19,8 @@ public class GameMember {
 	private String id=null;
 	private String nick=null;
 	private String small_image_url=null;
+	private String name = null;
+	private String tel=null;
 	
 	
 	
