@@ -7,7 +7,7 @@
 		UPDATE user
 		SET
 			nick=#{nick},
-			name=#{name},
+			u_name=#{u_name},
 			tel=#{tel}
 		WHERE
 			user_idx=#{user_idx}	
