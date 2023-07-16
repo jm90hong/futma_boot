@@ -19,7 +19,7 @@ public class GameMember {
 	private String id=null;
 	private String nick=null;
 	private String small_image_url=null;
-	private String name = null;
+	private String u_name = null;
 	private String tel=null;
 	
 	
@@ -28,11 +28,11 @@ public class GameMember {
 	
 	
 	
-	public String getName() {
-		return name;
+	public String getU_name() {
+		return u_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setU_name(String u_name) {
+		this.u_name = u_name;
 	}
 	public String getTel() {
 		return tel;
