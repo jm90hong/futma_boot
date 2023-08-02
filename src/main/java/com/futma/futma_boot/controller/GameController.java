@@ -26,8 +26,6 @@ public class GameController {
 	
 	
 	
-
-	
 	@Autowired
 	private GameService gameService;
 	
@@ -35,17 +33,12 @@ public class GameController {
 	private ManagerService managerService;
 	
 	
-	
-	
-	
-	
 	@GetMapping("getByUserIdxList")
-	@ResponseBody
+	@ResponseBody 
 	public List<Game> getByUserIdxList(
 				@RequestParam(value="idxs") List<Integer> list,
 				@RequestParam(value="ntm", defaultValue="0") long nowTimeMill
 			) {
-		
 		
 		if(list.size()==0) {
 			 List<Game> emptyList
