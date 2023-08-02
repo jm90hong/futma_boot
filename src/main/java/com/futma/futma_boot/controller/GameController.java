@@ -6,13 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.futma.futma_boot.config.MyHttpHeader;
 import com.futma.futma_boot.service.GameService;
@@ -20,7 +19,7 @@ import com.futma.futma_boot.service.ManagerService;
 import com.futma.futma_boot.vo.Game;
 
 
-@Controller
+@RestController
 @RequestMapping("game")
 public class GameController {
 	
@@ -33,8 +32,30 @@ public class GameController {
 	private ManagerService managerService;
 	
 	
+	
+	
+	@GetMapping("updatePlayerCnt")
+	public String updatePlayerCnt(
+				@RequestParam(value="game_idx") int game_idx,
+				@RequestParam(value="player_cnt") int player_cnt
+			) {
+		
+		
+		Game game = new Game();
+		game.setGame_idx(game_idx);
+		game.setPlayer_cnt(player_cnt);
+
+		Game result = gameService.getByIdx(game);
+		if(result.getNow_player_cnt()<=player_cnt) {
+			gameService.updatePlayerCnt(game);
+			return "ok";
+		}else {
+			return "over";
+		}
+	}
+	
+	
 	@GetMapping("getByUserIdxList")
-	@ResponseBody 
 	public List<Game> getByUserIdxList(
 				@RequestParam(value="idxs") List<Integer> list,
 				@RequestParam(value="ntm", defaultValue="0") long nowTimeMill
@@ -63,7 +84,7 @@ public class GameController {
 	
 	//game made by user
 	@RequestMapping(value="getCurrentGameByUserIdxWithLimit",method= {RequestMethod.GET})
-	public @ResponseBody List<Game> getCurrentGameByUserIdxWithLimit(
+	public List<Game> getCurrentGameByUserIdxWithLimit(
 				@RequestParam(value="user_idx") int user_idx,
 				@RequestParam(value="cnt") int cnt
 			){
@@ -80,7 +101,7 @@ public class GameController {
 	
 	
 	@RequestMapping(value="getCurrentGameByUserIdx",method= {RequestMethod.GET})
-	public @ResponseBody List<Game> getCurrentGameByUserIdx(
+	public List<Game> getCurrentGameByUserIdx(
 				@RequestParam(value="user_idx") int user_idx,
 				@RequestParam(value="ntm") long nowTimeMill
 			){
@@ -97,7 +118,7 @@ public class GameController {
 	
 	
 	@RequestMapping(value="getByUserIdx",method= {RequestMethod.GET})
-	public @ResponseBody List<Game> getByUserIdx(
+	public List<Game> getByUserIdx(
 				@RequestParam(value="user_idx") int user_idx
 			){
 		
@@ -112,7 +133,6 @@ public class GameController {
 	
 
 	@RequestMapping(value="getByIdx",method= {RequestMethod.GET})
-	@ResponseBody
 	public Game getByIdx(
 				@RequestParam(value="game_idx") long game_idx
 			){
@@ -127,7 +147,7 @@ public class GameController {
 
 	
 	@RequestMapping(value="search",method= {RequestMethod.POST})
-	public @ResponseBody List<Game> search(
+	public List<Game> search(
 				@RequestBody Map<String, Object> map
 			) throws Exception{
 		
@@ -138,7 +158,7 @@ public class GameController {
 	
 	
 	@RequestMapping(value="add", method= RequestMethod.POST)
-	public @ResponseBody String add(
+	public String add(
 				@RequestParam(value="uidx") long user_idx,
 				@RequestParam(value="sidx") long stadium_idx,
 				@RequestParam(value="sd") String start_date,

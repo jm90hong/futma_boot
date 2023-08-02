@@ -3,6 +3,14 @@
 	 		
 	 
 	 
+	 <update id="updatePlayerCnt" parameterType="Game">
+	 	UPDATE game
+	 	SET
+	 		player_cnt = #{player_cnt}
+	 	WHERE
+	 		game_idx=#{game_idx}		
+	 </update>
+	 
 	 <update id="updateNowPlayerCnt" parameterType="Game">
 	 	UPDATE game
 	 	SET

@@ -24,6 +24,10 @@ public class GameService {
 	UserDao userDao;
 	
 	
+	public int updatePlayerCnt(Game game) {
+		return gameDao.updatePlayerCnt(game);
+	}
+	
 	
 	public List<Game> getCurrentGameByUserIdxWithLimit(HashMap<String, Object> map) {
 		return gameDao.getCurrentGameByUserIdxWithLimit(map);
