@@ -139,7 +139,7 @@ public class GameMemberController {
 		pm.setGame_idx(game_idx);
 		pm.setUser_idx(user_idx);
 		pm.setPrice(game.getPrice());
-		pm.setName(name);
+		pm.setU_name(name);
 		pm.setTel(tel);
 		
 		if(game.getPrice()==0) {
