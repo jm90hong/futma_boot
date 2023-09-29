@@ -122,7 +122,6 @@
 	 	</trim>
 	 	ORDER BY g.game_idx DESC
 	 	LIMIT #{s},#{c}
-	 	
 	 </select>		
 	 		
 	 		
