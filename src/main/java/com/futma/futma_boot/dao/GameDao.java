@@ -17,7 +17,9 @@ public class GameDao{
 	@Autowired
 	SqlSession sqlSession;
 	
-	
+	public int updatePlayerCnt(Game game) {
+		return sqlSession.update("game.updatePlayerCnt",game);
+	}
 	
 	public int updateNowPlayerCnt(Game game) {
 		return sqlSession.update("game.updateNowPlayerCnt",game);

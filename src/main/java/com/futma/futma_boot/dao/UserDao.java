@@ -15,6 +15,11 @@ public class UserDao {
 	SqlSession sqlSession;
 	
 	
+	
+	public User findByUUID(String uuid) {
+		return sqlSession.selectOne("user.findByUUID",uuid);
+	}
+	
 	public int updateRequiredInfo(User user) {
 		return sqlSession.update("user.updateRequiredInfo",user);
 	}

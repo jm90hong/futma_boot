@@ -1,5 +1,7 @@
 package com.futma.futma_boot.controller;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,7 +51,6 @@ public class UserController {
 	
 	
 	@GetMapping("/getUserByIdx")
-	@ResponseBody
 	public User getUserByIdx(@RequestParam(value="idx") int user_idx) {
 		
 		User user =  new User();
@@ -62,9 +63,17 @@ public class UserController {
 	}
 	
 	
+	@RequestMapping(value="/getUserByUUID",method=RequestMethod.GET)
+	public User getUserByUUID(@RequestParam(value="uuid") String uuid) {
+		
+		
+		User user = userService.findByUUID(uuid);
+		
+		return user;
+	}
+	
 	
 	@RequestMapping(value="/getUserByNick",method=RequestMethod.GET)
-	@ResponseBody
 	public User getUserByNick(@RequestParam(value="nick") String nick) {
 		
 		User user =  new User();
@@ -76,7 +85,7 @@ public class UserController {
 	
 	
 	@RequestMapping(value="/updateUserNick",method=RequestMethod.GET)
-	public @ResponseBody String updateUserNick(
+	public String updateUserNick(
 				@RequestParam(value="uidx") long user_idx,
 				@RequestParam(value="nick") String nick
 			) {
@@ -93,7 +102,7 @@ public class UserController {
 	
 	
 	@RequestMapping(value="/updateImageUrl",method=RequestMethod.GET)
-	public @ResponseBody String updateImageUrl(
+	public String updateImageUrl(
 				@RequestParam(value="uidx") long user_idx,
 				@RequestParam(value="img_url") String image_url,
 				@RequestParam(value="sm_img_url") String small_image_url
@@ -113,7 +122,7 @@ public class UserController {
 	
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
-	public @ResponseBody String add(
+	public String add(
 				@RequestParam(value="id") String id,
 				@RequestParam(value="login_type") String login_type
 			) {
@@ -122,9 +131,13 @@ public class UserController {
 		user.setId(id);
 		user.setLogin_type(login_type);
 		
+		
 		User resultUser = userService.getUserByIdAndLoginType(user);
 		
 		if(resultUser==null) {
+			//uuid 설정 후 회원가입 하기
+			String uuid = UUID.randomUUID().toString();
+			user.setUser_uuid(uuid);
 			userService.insert(user);
 		}
 		
@@ -133,7 +146,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/getby_id_logintype",method=RequestMethod.GET)
-	public @ResponseBody User getby_id_logintype(
+	public User getby_id_logintype(
 				@RequestParam(value="id") String id,
 				@RequestParam(value="login_type") String login_type
 			) {

@@ -2,6 +2,12 @@
 <mapper namespace="user">	
 	 		
 	 	
+	
+	<select id="findByUUID"	parameterType="String" resultType="User">
+		SELECT * FROM user
+		WHERE user_uuid = #{user_uuid}
+	</select>
+	
 	 	
 	<update id="updateRequiredInfo" parameterType="User">
 		UPDATE user
@@ -50,9 +56,9 @@
 	
 	<insert id="insert" parameterType="User" >
 		INSERT INTO `user`
-		(id, login_type, created_date)
+		(user_uuid, id, login_type, created_date)
 		VALUES
-		(#{id}, #{login_type}, SYSDATE())
+		(#{user_uuid}, #{id}, #{login_type}, SYSDATE())
 	</insert>
 	
 	<select id="getUserByIdAndLoginType" parameterType="User"  resultType="User"> 
