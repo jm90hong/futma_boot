@@ -4,6 +4,7 @@ public class User {
 	
 	
 	private long user_idx=0;
+	private String user_uuid=null;
 	private String id = null;
 	private String login_type = null;
 	private String u_name = null;
@@ -29,6 +30,14 @@ public class User {
 	
 	
 	
+	
+	
+	public String getUser_uuid() {
+		return user_uuid;
+	}
+	public void setUser_uuid(String user_uuid) {
+		this.user_uuid = user_uuid;
+	}
 	public String getU_name() {
 		return u_name;
 	}

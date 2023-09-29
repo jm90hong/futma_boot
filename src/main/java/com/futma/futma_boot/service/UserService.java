@@ -13,6 +13,10 @@ public class UserService {
 	UserDao userDao;
 	
 	
+	public User findByUUID(String uuid) {
+		return userDao.findByUUID(uuid);
+	}
+	
 	public int updateRequiredInfo(User user) {
 		return userDao.updateRequiredInfo(user);
 	}
