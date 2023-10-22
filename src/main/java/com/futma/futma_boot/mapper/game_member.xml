@@ -54,9 +54,9 @@
 	 
 	 <insert id="add" parameterType="GameMember">
 	 	INSERT INTO game_member
-	 	(game_idx, user_idx, price, pay_ny, del_ny, pay_date, created_date)
+	 	(game_idx, user_idx, price, pay_ny, del_ny, pay_date, member_cnt created_date)
 	 	VALUES
-	 	(#{game_idx}, #{user_idx}, #{price}, #{pay_ny}, 'n', SYSDATE(), SYSDATE())
+	 	(#{game_idx}, #{user_idx}, #{price}, #{pay_ny}, 'n', SYSDATE(),#{member_cnt}, SYSDATE())
 	 </insert>
 	 		
 		

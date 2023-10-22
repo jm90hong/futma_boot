@@ -4,13 +4,11 @@ public class GameMember {
 	private int game_mem_idx=0;
 	private long game_idx=0;
 	private int user_idx=0;
-	
-	
 	private int price=0;
-	
 	private String pay_ny=null;
 	private String del_ny=null;
 	private String pay_date=null;
+	private int member_cnt=0;
 	private String created_date=null;
 	
 	
@@ -28,6 +26,12 @@ public class GameMember {
 	
 	
 	
+	public int getMember_cnt() {
+		return member_cnt;
+	}
+	public void setMember_cnt(int member_cnt) {
+		this.member_cnt = member_cnt;
+	}
 	public String getU_name() {
 		return u_name;
 	}

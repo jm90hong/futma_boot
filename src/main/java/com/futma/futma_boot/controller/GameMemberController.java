@@ -126,7 +126,8 @@ public class GameMemberController {
 				@RequestParam(value="game_idx") long game_idx,
 				@RequestParam(value="user_idx") int user_idx,
 				@RequestParam(value="name") String name,
-				@RequestParam(value="tel") String tel
+				@RequestParam(value="tel") String tel,
+				@RequestParam(value="member_cnt") int member_cnt
 			) {
 		
 		
@@ -141,6 +142,8 @@ public class GameMemberController {
 		pm.setPrice(game.getPrice());
 		pm.setU_name(name);
 		pm.setTel(tel);
+		pm.setMember_cnt(member_cnt);
+		
 		
 		if(game.getPrice()==0) {
 			pm.setPay_ny("y");
@@ -148,10 +151,12 @@ public class GameMemberController {
 			pm.setPay_ny("n");
 		}
 		
-	
-		if(game.getNow_player_cnt() < game.getPlayer_cnt()) {
+		
+		
+		//총 플레이어 수에서 참가하고자 하는 인원수 만큼의 할당량이 있어야 함.
+		if(game.getNow_player_cnt() <= game.getPlayer_cnt()-member_cnt) {
 			//set now_player_cnt 1
-			game.setNow_player_cnt(1);
+			game.setNow_player_cnt(member_cnt);
 			gameMemberService.add(pm,game);
 			return MyHttpHeader.SUCCESS;
 		}else {
