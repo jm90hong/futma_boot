@@ -57,11 +57,13 @@ public class GameMemberService {
 	
 	@Transactional
 	public int delMember(GameMember gm) {
+		
+		//delete game member
 		gameMemberDao.delMember(gm);
 		
 		Game game = new Game();
 		game.setGame_idx(gm.getGame_idx());
-		game.setNow_player_cnt(-1);
+		game.setNow_player_cnt(gm.getMember_cnt());
 		
 		//decrease join cnt -1
 		User user = new User();
