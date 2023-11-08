@@ -63,7 +63,7 @@ public class GameMemberService {
 		
 		Game game = new Game();
 		game.setGame_idx(gm.getGame_idx());
-		game.setNow_player_cnt(gm.getMember_cnt());
+		game.setNow_player_cnt((-1)*gm.getMember_cnt());
 		
 		//decrease join cnt -1
 		User user = new User();
