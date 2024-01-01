@@ -5,7 +5,10 @@
 	 		
 	 		
 	<select id="findByUserIdx" parameterType="Long" resultType="Manager">
-		SELECT * FROM manager
+		SELECT 
+			*,
+			AES_DECRYPT(UNHEX(bank_account_enc), 'futma') AS bank_account
+	 	FROM manager
 		WHERE user_idx=#{user_idx}
 	</select> 		
 	 
@@ -23,7 +26,7 @@
 			owner_ny=#{owner_ny}, 
 			kakao_pay_link=#{kakao_pay_link}, 
 			bank_name=#{bank_name},
-			bank_account=#{bank_account},
+			bank_account_enc=HEX(AES_ENCRYPT(#{bank_account},'futma')),
 			created_date=SYSDATE()
 		WHERE
 			mng_idx=#{mng_idx}	
@@ -42,7 +45,7 @@
 			owner_ny, 
 			kakao_pay_link, 
 			bank_name,
-			bank_account,
+			bank_account_enc,
 			created_date)
 		VALUES
 		(
@@ -56,7 +59,7 @@
 			#{owner_ny},
 			#{kakao_pay_link}, 
 			#{bank_name},
-			#{bank_account},
+			HEX(AES_ENCRYPT(#{bank_account},'futma')),
 			SYSDATE()
 		)
 	</insert>	

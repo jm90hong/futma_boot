@@ -45,7 +45,9 @@
 	 
 	 
 	 <select id="getByUserIdx" parameterType="Game" resultType="Game">
-	 	SELECT * 
+	 	SELECT 
+	 		*,
+	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel 
 	 	FROM game as g 
 	 	INNER JOIN user as u
 	 	ON g.user_idx = u.user_idx
@@ -58,7 +60,9 @@
 	 
 	 
 	 <select id="getByIdx" parameterType="Game" resultType="Game">
-	 	SELECT * 
+	 	SELECT 
+	 		*,
+	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel 
 	 	FROM game as g 
 	 	INNER JOIN user as u
 	 	ON g.user_idx = u.user_idx
@@ -71,7 +75,7 @@
 	 		
 	 
 	 <select id="getByUserIdxList"  parameterType="HashMap" resultType="Game">
-	 	SELECT * 
+	 	SELECT *,AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel  
 	 	FROM game as g 
 	 	INNER JOIN user as u
 	 	ON g.user_idx = u.user_idx
@@ -92,7 +96,7 @@
 		
 	 		
 	 <select id="search" parameterType="HashMap" resultType="Game">
-	 	SELECT * 
+	 	SELECT *,AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel  
 	 	FROM game as g 
 	 	INNER JOIN user as u
 	 	ON g.user_idx = u.user_idx

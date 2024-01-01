@@ -21,7 +21,10 @@
 		
 		
 	 <select id="findByRvUserIdx" parameterType="HashMap" resultType="Review">
-	 	SELECT * FROM review AS r
+	 	SELECT 
+	 		*,
+	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel
+	    FROM review AS r
 	 	INNER JOIN user AS u
 	 	ON r.wr_user_idx= u.user_idx
 	 	WHERE r.rv_user_idx=#{user_idx}
@@ -31,7 +34,10 @@
 	 
 	 
 	 <select id="findByWrUserIdx" parameterType="HashMap" resultType="Review">
-	 	SELECT * FROM review AS r
+	 	SELECT 
+	 		*,
+	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel
+	 	FROM review AS r
 	 	INNER JOIN user AS u
 	 	ON r.wr_user_idx= u.user_idx
 	 	WHERE r.wr_user_idx=#{user_idx}

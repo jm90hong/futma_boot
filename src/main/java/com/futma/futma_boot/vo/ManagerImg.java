@@ -5,6 +5,8 @@ public class ManagerImg {
 	private int mng_idx=0;
 	private String img_url=null;
 	private String created_date=null;
+	
+	
 	public int getMng_img_idx() {
 		return mng_img_idx;
 	}

@@ -1,10 +1,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">	
-	 		
+	
+	
+	<!--
+		암호화 
+		HEX(AES_ENCRYPT(#{tel},'futma'))
+		
+		복호화 
+		AES_DECRYPT(UNHEX(tel_enc), 'futma') AS tel
+	--> 		
 	 	
 	
 	<select id="findByUUID"	parameterType="String" resultType="User">
-		SELECT * FROM user
+		SELECT 
+			*,
+			AES_DECRYPT(UNHEX(tel_enc), 'futma') AS tel
+		FROM user
 		WHERE user_uuid = #{user_uuid}
 	</select>
 	
@@ -14,7 +25,7 @@
 		SET
 			nick=#{nick},
 			u_name=#{u_name},
-			tel=#{tel}
+			tel_enc=HEX(AES_ENCRYPT(#{tel},'futma'))
 		WHERE
 			user_idx=#{user_idx}	
 	</update> 	
@@ -62,7 +73,9 @@
 	</insert>
 	
 	<select id="getUserByIdAndLoginType" parameterType="User"  resultType="User"> 
-		SELECT * 
+		SELECT 
+			*,
+			AES_DECRYPT(UNHEX(tel_enc), 'futma') AS tel 
 		FROM `user`
 		WHERE 
 			id=#{id} 
@@ -73,7 +86,9 @@
 	
 	
 	<select id="getUserByIdx" parameterType="User" resultType="User">
-		SELECT * 
+		SELECT 
+			*,
+			AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel 
 		FROM user AS u
 		LEFT JOIN manager AS m
 		ON u.user_idx=m.user_idx
@@ -81,7 +96,9 @@
 	</select>
 	
 	<select id="getUserByNick" parameterType="User" resultType="User">
-		SELECT *
+		SELECT 
+			*,
+			AES_DECRYPT(UNHEX(tel_enc), 'futma') AS tel
 		FROM `user`
 		WHERE nick=#{nick}
 	</select>

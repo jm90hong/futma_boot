@@ -12,10 +12,22 @@ public class Manager {
 	private String owner_ny=null;
 	private String kakao_pay_link=null;
 	private String bank_name=null;
+	private String bank_account_enc=null;
 	private String bank_account=null;
 	private String created_date=null;
 	
 	
+	
+	
+	
+	
+	
+	public String getBank_account_enc() {
+		return bank_account_enc;
+	}
+	public void setBank_account_enc(String bank_account_enc) {
+		this.bank_account_enc = bank_account_enc;
+	}
 	public String getBank_name() {
 		return bank_name;
 	}

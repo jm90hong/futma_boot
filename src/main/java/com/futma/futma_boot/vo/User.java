@@ -9,6 +9,7 @@ public class User {
 	private String login_type = null;
 	private String u_name = null;
 	private String nick=null;
+	private String tel_enc=null;
 	private String tel=null;
 	private String image_url=null;
 	private String small_image_url=null;
@@ -32,6 +33,12 @@ public class User {
 	
 	
 	
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 	public String getUser_uuid() {
 		return user_uuid;
 	}
@@ -112,11 +119,11 @@ public class User {
 		this.mng_req_state = mng_req_state;
 	}
 	
-	public String getTel() {
-		return tel;
+	public String getTel_enc() {
+		return tel_enc;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setTel_enc(String tel_enc) {
+		this.tel_enc = tel_enc;
 	}
 	public String getManager_ny() {
 		return manager_ny;
