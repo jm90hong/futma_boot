@@ -4,13 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.futma.futma_boot.config.MyHttpHeader;
 import com.futma.futma_boot.service.GameMemberService;
@@ -18,7 +17,7 @@ import com.futma.futma_boot.service.GameService;
 import com.futma.futma_boot.vo.Game;
 import com.futma.futma_boot.vo.GameMember;
 
-@Controller
+@RestController
 @RequestMapping(value="game_member")
 public class GameMemberController {
 
@@ -37,7 +36,7 @@ public class GameMemberController {
 	
 	//game joined by user
 	@GetMapping("getCurrentJoinedGameByUserIdxWithLimit")
-	public @ResponseBody List<Game> getCurrentJoinedGameByUserIdxWithLimit(
+	public List<Game> getCurrentJoinedGameByUserIdxWithLimit(
 				@RequestParam(value="user_idx") int user_idx,
 				@RequestParam(value="cnt") int cnt
 				
@@ -55,7 +54,7 @@ public class GameMemberController {
 	
 	
 	@GetMapping("getCurrentJoinedGameByUserIdx")
-	public @ResponseBody List<Game> getCurrentJoinedGameByUserIdx(
+	public List<Game> getCurrentJoinedGameByUserIdx(
 				@RequestParam(value="user_idx") int user_idx,
 				@RequestParam(value="ntm") long nowTimeMill
 			){
@@ -74,7 +73,7 @@ public class GameMemberController {
 	
 	
 	@GetMapping("getByUserIdx")
-	public @ResponseBody List<GameMember> getByUserIdx(
+	public List<GameMember> getByUserIdx(
 				@RequestParam(value="user_idx") int user_idx
 			){
 		
@@ -88,7 +87,7 @@ public class GameMemberController {
 	}
 	
 	@GetMapping("getByGameIdx")
-	public @ResponseBody List<GameMember> getByGameIdx(
+	public List<GameMember> getByGameIdx(
 				@RequestParam(value="game_idx") int game_idx
 			){
 		
@@ -102,15 +101,17 @@ public class GameMemberController {
 	}
 	
 	
-	@RequestMapping(value="delMember", method=RequestMethod.POST)
-	public @ResponseBody String delMember(
+	@PostMapping(value="delMember")
+	public String delMember(
 				@RequestParam(value="game_mem_idx") int game_mem_idx,
-				@RequestParam(value="game_idx") int game_idx
+				@RequestParam(value="game_idx") int game_idx,
+				@RequestParam(value="member_cnt") int member_cnt
 			) {
 		
 		GameMember gm = new GameMember();
 		gm.setGame_mem_idx(game_mem_idx);
 		gm.setGame_idx(game_idx);
+		gm.setMember_cnt(member_cnt);
 		
 		gameMemberService.delMember(gm);
 		
@@ -122,7 +123,7 @@ public class GameMemberController {
 	
 	
 	@PostMapping("add")
-	public @ResponseBody String add(
+	public String add(
 				@RequestParam(value="game_idx") long game_idx,
 				@RequestParam(value="user_idx") int user_idx,
 				@RequestParam(value="name") String name,

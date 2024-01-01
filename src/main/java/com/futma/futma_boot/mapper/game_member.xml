@@ -42,7 +42,9 @@
 	</select>
 	 		
 	 <select id="getByGameIdx" parameterType="GameMember" resultType="GameMember">
-	 	SELECT *,AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel 
+	 	SELECT 
+	 		*,
+	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel 
 	 	FROM game_member AS gm
 	 	INNER JOIN user AS u
 	 	ON gm.user_idx=u.user_idx
@@ -50,10 +52,10 @@
 	 </select>
 	 
 	 
-	 
+
 	 <insert id="add" parameterType="GameMember">
 	 	INSERT INTO game_member
-	 	(game_idx, user_idx, price, pay_ny, del_ny, pay_date, member_cnt created_date)
+	 	(game_idx, user_idx, price, pay_ny, del_ny, pay_date, member_cnt, created_date)
 	 	VALUES
 	 	(#{game_idx}, #{user_idx}, #{price}, #{pay_ny}, 'n', SYSDATE(),#{member_cnt}, SYSDATE())
 	 </insert>
