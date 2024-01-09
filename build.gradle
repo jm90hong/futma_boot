@@ -29,6 +29,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/commons-codec/commons-codec
 	implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
 	
+	
+	//spring httpClient
+	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+	
 }
 
 tasks.named('test') {
