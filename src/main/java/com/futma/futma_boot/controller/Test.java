@@ -12,6 +12,8 @@ public class Test {
 		
 		float r = ((totalStar*reviewCnt)+oneStar)/(reviewCnt+1);
 		System.out.println(Math.round(r*10)/10.0);
+		
+		
 	}
 
 }
