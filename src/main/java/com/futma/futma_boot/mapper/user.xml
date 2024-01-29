@@ -9,12 +9,17 @@
 		복호화 
 		AES_DECRYPT(UNHEX(tel_enc), 'futma') AS tel
 	--> 		
-	 	
+	 
+	<resultMap type="User" id="User">
+        <result column="id" property="id" typeHandler="AesCipherTypeHandler" />
+        <result column="tel" property="tel" typeHandler="AesCipherTypeHandler" />
+    </resultMap>
+    
+     	
 	
-	<select id="findByUUID"	parameterType="String" resultType="User">
+	<select id="findByUUID"	parameterType="String" resultMap="User">
 		SELECT 
-			*,
-			AES_DECRYPT(UNHEX(tel_enc), 'futma') AS tel
+			*
 		FROM user
 		WHERE user_uuid = #{user_uuid}
 	</select>
@@ -25,7 +30,7 @@
 		SET
 			nick=#{nick},
 			u_name=#{u_name},
-			tel_enc=HEX(AES_ENCRYPT(#{tel},'futma'))
+			tel=#{tel, typeHandler=AesCipherTypeHandler}
 		WHERE
 			user_idx=#{user_idx}	
 	</update> 	
@@ -65,17 +70,16 @@
 	</update> 		
 	
 	
-	<insert id="insert" parameterType="User" >
+	<insert id="insert" parameterType="User">
 		INSERT INTO `user`
 		(user_uuid, id, login_type, created_date)
 		VALUES
-		(#{user_uuid}, #{id}, #{login_type}, SYSDATE())
+		(#{user_uuid}, #{id,typeHandler=IdCipherTypeHandler}, #{login_type}, SYSDATE())
 	</insert>
 	
-	<select id="getUserByIdAndLoginType" parameterType="User"  resultType="User"> 
+	<select id="getUserByIdAndLoginType" parameterType="User"  resultMap="User"> 
 		SELECT 
-			*,
-			AES_DECRYPT(UNHEX(tel_enc), 'futma') AS tel 
+			*
 		FROM `user`
 		WHERE 
 			id=#{id} 
@@ -85,20 +89,18 @@
 	
 	
 	
-	<select id="getUserByIdx" parameterType="User" resultType="User">
+	<select id="getUserByIdx" parameterType="User" resultMap="User">
 		SELECT 
-			*,
-			AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel 
+			*
 		FROM user AS u
 		LEFT JOIN manager AS m
 		ON u.user_idx=m.user_idx
 		WHERE u.user_idx=#{user_idx}
 	</select>
 	
-	<select id="getUserByNick" parameterType="User" resultType="User">
+	<select id="getUserByNick" parameterType="User" resultMap="User">
 		SELECT 
-			*,
-			AES_DECRYPT(UNHEX(tel_enc), 'futma') AS tel
+			*
 		FROM `user`
 		WHERE nick=#{nick}
 	</select>
