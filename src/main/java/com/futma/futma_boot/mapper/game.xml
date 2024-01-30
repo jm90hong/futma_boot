@@ -2,6 +2,17 @@
 <mapper namespace="game">	
 	 		
 	 
+	 <!-- 암호화 처리 할 컬럼에 세팅 --> 
+	 <resultMap type="User" id="User">
+   	 	<result column="id" property="id" typeHandler="AesCipherTypeHandler" />
+        <result column="tel" property="tel" typeHandler="AesCipherTypeHandler" />
+     </resultMap>
+     
+     <resultMap type="Game" id="Game">
+   	 	<result column="id" property="id" typeHandler="AesCipherTypeHandler" />
+        <result column="tel" property="tel" typeHandler="AesCipherTypeHandler" />
+     </resultMap>
+    
 	 
 	 <update id="updatePlayerCnt" parameterType="Game">
 	 	UPDATE game
@@ -44,10 +55,9 @@
 	 </select>
 	 
 	 
-	 <select id="getByUserIdx" parameterType="Game" resultType="Game">
+	 <select id="getByUserIdx" parameterType="Game" resultMap="Game">
 	 	SELECT 
-	 		*,
-	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel 
+	 		*
 	 	FROM game as g 
 	 	INNER JOIN user as u
 	 	ON g.user_idx = u.user_idx
@@ -61,8 +71,7 @@
 	 
 	 <select id="getByIdx" parameterType="Game" resultType="Game">
 	 	SELECT 
-	 		*,
-	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel 
+	 		*
 	 	FROM game as g 
 	 	INNER JOIN user as u
 	 	ON g.user_idx = u.user_idx
@@ -75,7 +84,7 @@
 	 		
 	 
 	 <select id="getByUserIdxList"  parameterType="HashMap" resultType="Game">
-	 	SELECT *,AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel  
+	 	SELECT *
 	 	FROM game as g 
 	 	INNER JOIN user as u
 	 	ON g.user_idx = u.user_idx
@@ -96,7 +105,7 @@
 		
 	 		
 	 <select id="search" parameterType="HashMap" resultType="Game">
-	 	SELECT *,AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel  
+	 	SELECT *
 	 	FROM game as g 
 	 	INNER JOIN user as u
 	 	ON g.user_idx = u.user_idx

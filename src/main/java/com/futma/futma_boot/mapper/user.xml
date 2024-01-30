@@ -9,7 +9,8 @@
 		복호화 
 		AES_DECRYPT(UNHEX(tel_enc), 'futma') AS tel
 	--> 		
-	 
+	
+	<!-- 암호화 처리 할 컬럼에 세팅 --> 
 	<resultMap type="User" id="User">
         <result column="id" property="id" typeHandler="AesCipherTypeHandler" />
         <result column="tel" property="tel" typeHandler="AesCipherTypeHandler" />
@@ -121,11 +122,4 @@
 	</update>
 	
 	
-	
-
-	
-	
-	
-	
-
 </mapper>
