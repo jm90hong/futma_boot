@@ -3,7 +3,7 @@ package com.futma.futma_boot.controller;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,9 +18,10 @@ public class SmsController {
 	SmsService smsService;
 	
 	
-	@GetMapping("sendCode")
+	@PostMapping("sendCode")
 	public String send(
-				@RequestParam(value="toTel") String toTel
+				@RequestParam(value="to_tel") String toTel,
+				@RequestParam(value="test_ny",defaultValue = "n") String test_ny
 			) {
 		
 		Random random = new Random();		//랜덤 함수 선언
@@ -39,7 +40,15 @@ public class SmsController {
 		
 		String message = "[Futma.] 인증코드는 ["+resultNum+"] 입니다.";
 		
-		boolean chk = smsService.sendSMS(toTel,message);
+		boolean chk=false;
+		
+		if(test_ny.equals("n")){
+			chk = smsService.sendSMS(toTel,message);
+		}else {
+			chk=true;
+		}
+		
+		
 		
 		if(chk) {
 			return resultNum;
