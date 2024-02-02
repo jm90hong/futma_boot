@@ -1,13 +1,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="manager">	
+	
+	
+	<resultMap type="Manager" id="Manager">
+        <result column="id" property="id" typeHandler="AesCipherTypeHandler" />
+        <result column="tel" property="tel" typeHandler="AesCipherTypeHandler" />
+        <result column="bank_account" property="bank_account" typeHandler="AesCipherTypeHandler" />
+    </resultMap> 		
 	 		
 	 		
 	 		
-	 		
-	<select id="findByUserIdx" parameterType="Long" resultType="Manager">
+	<select id="findByUserIdx" parameterType="Long" resultMap="Manager">
 		SELECT 
-			*,
-			AES_DECRYPT(UNHEX(bank_account_enc), 'futma') AS bank_account
+			*
 	 	FROM manager
 		WHERE user_idx=#{user_idx}
 	</select> 		
@@ -26,7 +31,7 @@
 			owner_ny=#{owner_ny}, 
 			kakao_pay_link=#{kakao_pay_link}, 
 			bank_name=#{bank_name},
-			bank_account_enc=HEX(AES_ENCRYPT(#{bank_account},'futma')),
+			bank_account=#{bank_account, typeHandler=AesCipherTypeHandler},
 			created_date=SYSDATE()
 		WHERE
 			mng_idx=#{mng_idx}	
@@ -45,7 +50,7 @@
 			owner_ny, 
 			kakao_pay_link, 
 			bank_name,
-			bank_account_enc,
+			bank_account,
 			created_date)
 		VALUES
 		(
@@ -59,7 +64,7 @@
 			#{owner_ny},
 			#{kakao_pay_link}, 
 			#{bank_name},
-			HEX(AES_ENCRYPT(#{bank_account},'futma')),
+			#{bank_account, typeHandler=AesCipherTypeHandler}
 			SYSDATE()
 		)
 	</insert>	
