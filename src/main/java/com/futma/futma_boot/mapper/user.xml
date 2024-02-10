@@ -75,7 +75,7 @@
 		INSERT INTO `user`
 		(user_uuid, id, login_type, created_date)
 		VALUES
-		(#{user_uuid}, #{id,typeHandler=IdCipherTypeHandler}, #{login_type}, SYSDATE())
+		(#{user_uuid}, #{id,typeHandler=AesCipherTypeHandler}, #{login_type}, SYSDATE())
 	</insert>
 	
 	<select id="getUserByIdAndLoginType" parameterType="User"  resultMap="User"> 
