@@ -71,6 +71,24 @@
 	</update> 		
 	
 	
+	<insert id="save" parameterType="User">
+		INSERT INTO `user`
+		(
+			user_uuid, 
+			id,
+			tel, 
+			login_type, 
+			created_date
+		)
+		VALUES
+		(
+			#{user_uuid}, 
+			#{id,typeHandler=IdCipherTypeHandler},
+			#{tel,typeHandler=TelCipherTypeHandler},
+			#{login_type}, SYSDATE())
+	</insert>
+	
+	
 	<insert id="insert" parameterType="User">
 		INSERT INTO `user`
 		(user_uuid, id, login_type, created_date)
