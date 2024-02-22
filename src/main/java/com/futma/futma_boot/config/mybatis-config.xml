@@ -17,11 +17,11 @@
     
     
     <typeAliases>
-        <typeAlias type="com.my.type_handler_boot.type_handler.IdCipherTypeHandler" alias="IdCipherTypeHandler" />
+        <typeAlias type="com.futma.futma_boot.type_handler.AesCipherTypeHandler" alias="AesCipherTypeHandler" />
     </typeAliases>    
     
     <typeHandlers>
-        <typeHandler handler="com.my.type_handler_boot.type_handler.IdCipherTypeHandler"/>
+        <typeHandler handler="com.futma.futma_boot.type_handler.AesCipherTypeHandler"/>
     </typeHandlers>
     
 </configuration>
