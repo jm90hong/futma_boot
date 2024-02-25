@@ -41,7 +41,7 @@ public class SmsController {
 		
 		boolean chk = smsService.sendSMS(toTel,message);
 		
-		if(chk) {
+		if(chk){
 			return resultNum;
 		}else {
 			return "fail";
