@@ -45,6 +45,8 @@
 			user_idx=#{user_idx}	
 	</update>
 	
+	
+	
 	<update id="addJoinCnt" parameterType="User">
 		UPDATE user
 		SET 
