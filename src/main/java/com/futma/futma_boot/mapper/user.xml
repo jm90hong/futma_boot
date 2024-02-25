@@ -73,6 +73,11 @@
 	</update> 		
 	
 	
+	<select id="findByTel" parameterType="String" resultMap="User">
+		SELECT * FROM user
+		WHERE tel=#{tel,typeHandler=AesCipherTypeHandler}
+	</select>
+	
 	<insert id="save" parameterType="User">
 		INSERT INTO `user`
 		(
@@ -80,6 +85,8 @@
 			id,
 			tel, 
 			login_type, 
+			gender,
+			nick,
 			created_date
 		)
 		VALUES
@@ -87,7 +94,11 @@
 			#{user_uuid}, 
 			#{id,typeHandler=AesCipherTypeHandler},
 			#{tel,typeHandler=AesCipherTypeHandler},
-			#{login_type}, SYSDATE())
+			#{login_type}, 
+			#{gender},
+			#{nick},
+			SYSDATE()
+		)
 	</insert>
 	
 	

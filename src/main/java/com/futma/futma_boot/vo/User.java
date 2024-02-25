@@ -20,12 +20,39 @@ public class User {
 	private int make_cnt=0;
 	private int join_cnt=0;
 	private String text_msg=null;
+	private String gender=null;
+	private String birth=null;
+	private String u_act_location=null;
+	
 	
 	
 	//manager 
 	private String act_addr1=null;
 	private String act_addr2=null;
 	private String owner_ny=null;
+	
+	
+	
+	
+	
+	public String getU_act_location() {
+		return u_act_location;
+	}
+	public void setU_act_location(String u_act_location) {
+		this.u_act_location = u_act_location;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public long getUser_idx() {
 		return user_idx;
 	}

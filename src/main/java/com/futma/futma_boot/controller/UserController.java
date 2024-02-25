@@ -63,7 +63,7 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="/getUserByUUID",method=RequestMethod.GET)
+	@GetMapping("/getUserByUUID")
 	public User getUserByUUID(@RequestParam(value="uuid") String uuid) {
 		
 		
@@ -73,7 +73,7 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="/getUserByNick",method=RequestMethod.GET)
+	@GetMapping("getUserByNick")
 	public User getUserByNick(@RequestParam(value="nick") String nick) {
 		
 		User user =  new User();
@@ -84,7 +84,7 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="/updateUserNick",method=RequestMethod.GET)
+	@GetMapping("updateUserNick")
 	public String updateUserNick(
 				@RequestParam(value="uidx") long user_idx,
 				@RequestParam(value="nick") String nick
@@ -101,7 +101,7 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="/updateImageUrl",method=RequestMethod.GET)
+	@GetMapping("updateImageUrl")
 	public String updateImageUrl(
 				@RequestParam(value="uidx") long user_idx,
 				@RequestParam(value="img_url") String image_url,
@@ -121,31 +121,50 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="/add",method=RequestMethod.GET)
-	public String add(
-				@RequestParam(value="id") String id,
-				@RequestParam(value="login_type") String login_type
+	@GetMapping("findByTel")
+	public User findByTel(
+				@RequestParam(value="tel") String tel
+			) {
+		
+		return userService.findByTel(tel);
+	}
+
+	
+	@PostMapping(value="/save")
+	public String save(
+				@RequestParam(value="tel") String tel,
+				@RequestParam(value="login_type") String login_type,
+				@RequestParam(value="nick") String nick,
+				@RequestParam(value="gender") String gender,
+				@RequestParam(value="birth") String birth,
+				@RequestParam(value="location") String location
 			) {
 		
 		User user = new User();
-		user.setId(id);
+		//uuid 설정 후 회원가입 하기
+		String uuid = UUID.randomUUID().toString();
+		user.setUser_uuid(uuid);
+		user.setId(tel);
+		user.setTel(tel);
 		user.setLogin_type(login_type);
+		user.setNick(nick);
+		user.setGender(gender);
+		user.setBirth(birth);
+		user.setU_act_location(location);
 		
 		
-		User resultUser = userService.getUserByIdAndLoginType(user);
+		//닉네임으로 먼저 조회
+		User resultUser = userService.getUserByNick(user);
 		
 		if(resultUser==null) {
-			//uuid 설정 후 회원가입 하기
-			String uuid = UUID.randomUUID().toString();
-			user.setUser_uuid(uuid);
 			userService.insert(user);
+			return MyHttpHeader.SUCCESS;
+		}else {
+			return "nick";
 		}
-		
-		
-		return MyHttpHeader.SUCCESS;
 	}
 	
-	@RequestMapping(value="/getby_id_logintype",method=RequestMethod.GET)
+	@GetMapping("getby_id_logintype")
 	public User getby_id_logintype(
 				@RequestParam(value="id") String id,
 				@RequestParam(value="login_type") String login_type

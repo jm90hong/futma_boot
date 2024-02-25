@@ -9,8 +9,8 @@
      </resultMap>
      
      <resultMap type="Game" id="Game">
-   	 	<result column="id" property="id" typeHandler="AesCipherTypeHandler" />
-        <result column="tel" property="tel" typeHandler="AesCipherTypeHandler" />
+   	 	<result column="id" property="id"  typeHandler="AesCipherTypeHandler" />
+        <result column="tel" property="tel"  typeHandler="AesCipherTypeHandler" />
      </resultMap>
     
 	 
