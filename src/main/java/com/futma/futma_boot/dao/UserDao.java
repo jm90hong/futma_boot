@@ -16,6 +16,10 @@ public class UserDao {
 	
 	
 	
+	public User findByTel(String tel) {
+		return sqlSession.selectOne("user.findByTel", tel);
+	}
+	
 	public User findByUUID(String uuid) {
 		return sqlSession.selectOne("user.findByUUID",uuid);
 	}

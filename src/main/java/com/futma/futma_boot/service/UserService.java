@@ -13,6 +13,11 @@ public class UserService {
 	UserDao userDao;
 	
 	
+	
+	public User findByTel(String tel) {
+		return userDao.findByTel(tel);
+	}
+	
 	public User findByUUID(String uuid) {
 		return userDao.findByUUID(uuid);
 	}

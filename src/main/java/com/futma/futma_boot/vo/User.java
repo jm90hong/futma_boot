@@ -9,7 +9,6 @@ public class User {
 	private String login_type = null;
 	private String u_name = null;
 	private String nick=null;
-	private String tel_enc=null;
 	private String tel=null;
 	private String image_url=null;
 	private String small_image_url=null;
@@ -21,23 +20,44 @@ public class User {
 	private int make_cnt=0;
 	private int join_cnt=0;
 	private String text_msg=null;
+	private String gender=null;
+	private String birth=null;
+	private String u_act_location=null;
+	
 	
 	
 	//manager 
 	private String act_addr1=null;
 	private String act_addr2=null;
 	private String owner_ny=null;
-
 	
 	
 	
 	
 	
-	public String getTel() {
-		return tel;
+	public String getU_act_location() {
+		return u_act_location;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setU_act_location(String u_act_location) {
+		this.u_act_location = u_act_location;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public long getUser_idx() {
+		return user_idx;
+	}
+	public void setUser_idx(long user_idx) {
+		this.user_idx = user_idx;
 	}
 	public String getUser_uuid() {
 		return user_uuid;
@@ -45,11 +65,65 @@ public class User {
 	public void setUser_uuid(String user_uuid) {
 		this.user_uuid = user_uuid;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getLogin_type() {
+		return login_type;
+	}
+	public void setLogin_type(String login_type) {
+		this.login_type = login_type;
+	}
 	public String getU_name() {
 		return u_name;
 	}
 	public void setU_name(String u_name) {
 		this.u_name = u_name;
+	}
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getImage_url() {
+		return image_url;
+	}
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+	public String getSmall_image_url() {
+		return small_image_url;
+	}
+	public void setSmall_image_url(String small_image_url) {
+		this.small_image_url = small_image_url;
+	}
+	public String getManager_ny() {
+		return manager_ny;
+	}
+	public void setManager_ny(String manager_ny) {
+		this.manager_ny = manager_ny;
+	}
+	public String getMng_req_state() {
+		return mng_req_state;
+	}
+	public void setMng_req_state(String mng_req_state) {
+		this.mng_req_state = mng_req_state;
+	}
+	public float getStar_rank() {
+		return star_rank;
+	}
+	public void setStar_rank(float star_rank) {
+		this.star_rank = star_rank;
 	}
 	public int getReview_cnt() {
 		return review_cnt;
@@ -57,11 +131,11 @@ public class User {
 	public void setReview_cnt(int review_cnt) {
 		this.review_cnt = review_cnt;
 	}
-	public String getText_msg() {
-		return text_msg;
+	public String getCreated_date() {
+		return created_date;
 	}
-	public void setText_msg(String text_msg) {
-		this.text_msg = text_msg;
+	public void setCreated_date(String created_date) {
+		this.created_date = created_date;
 	}
 	public int getMake_cnt() {
 		return make_cnt;
@@ -74,6 +148,12 @@ public class User {
 	}
 	public void setJoin_cnt(int join_cnt) {
 		this.join_cnt = join_cnt;
+	}
+	public String getText_msg() {
+		return text_msg;
+	}
+	public void setText_msg(String text_msg) {
+		this.text_msg = text_msg;
 	}
 	public String getAct_addr1() {
 		return act_addr1;
@@ -93,73 +173,9 @@ public class User {
 	public void setOwner_ny(String owner_ny) {
 		this.owner_ny = owner_ny;
 	}
-	public String getSmall_image_url() {
-		return small_image_url;
-	}
-	public void setSmall_image_url(String small_image_url) {
-		this.small_image_url = small_image_url;
-	}
-	public float getStar_rank() {
-		return star_rank;
-	}
-	public void setStar_rank(float star_rank) {
-		this.star_rank = star_rank;
-	}
+
 	
-	public String getImage_url() {
-		return image_url;
-	}
-	public void setImage_url(String image_url) {
-		this.image_url = image_url;
-	}
-	public String getMng_req_state() {
-		return mng_req_state;
-	}
-	public void setMng_req_state(String mng_req_state) {
-		this.mng_req_state = mng_req_state;
-	}
 	
-	public String getTel_enc() {
-		return tel_enc;
-	}
-	public void setTel_enc(String tel_enc) {
-		this.tel_enc = tel_enc;
-	}
-	public String getManager_ny() {
-		return manager_ny;
-	}
-	public void setManager_ny(String manager_ny) {
-		this.manager_ny = manager_ny;
-	}
-	public String getNick() {
-		return nick;
-	}
-	public void setNick(String nick) {
-		this.nick = nick;
-	}
-	public long getUser_idx() {
-		return user_idx;
-	}
-	public void setUser_idx(long user_idx) {
-		this.user_idx = user_idx;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getLogin_type() {
-		return login_type;
-	}
-	public void setLogin_type(String login_type) {
-		this.login_type = login_type;
-	}
-	public String getCreated_date() {
-		return created_date;
-	}
-	public void setCreated_date(String created_date) {
-		this.created_date = created_date;
-	}
+	
 	
 }
