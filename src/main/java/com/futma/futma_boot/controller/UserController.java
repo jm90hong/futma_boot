@@ -157,7 +157,7 @@ public class UserController {
 		User resultUser = userService.getUserByNick(user);
 		
 		if(resultUser==null) {
-			userService.insert(user);
+			userService.save(user);
 			return MyHttpHeader.SUCCESS;
 		}else {
 			return "nick";

@@ -49,9 +49,10 @@ public class UserDao {
 	}
 	
 	
-	public int insert (User user) {
-		return sqlSession.insert("user.insert",user);
+	public int save (User user) {
+		return sqlSession.insert("user.save",user);
 	}
+	
 	
 	public User getUserByIdAndLoginType (User user) {
 		return sqlSession.selectOne("user.getUserByIdAndLoginType",user);

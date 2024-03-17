@@ -87,6 +87,8 @@
 			login_type, 
 			gender,
 			nick,
+			birth,
+			u_act_location,
 			created_date
 		)
 		VALUES
@@ -97,17 +99,13 @@
 			#{login_type}, 
 			#{gender},
 			#{nick},
+			#{birth},
+			#{u_act_location},
 			SYSDATE()
 		)
 	</insert>
 	
 	
-	<insert id="insert" parameterType="User">
-		INSERT INTO `user`
-		(user_uuid, id, login_type, created_date)
-		VALUES
-		(#{user_uuid}, #{id,typeHandler=AesCipherTypeHandler}, #{login_type}, SYSDATE())
-	</insert>
 	
 	<select id="getUserByIdAndLoginType" parameterType="User"  resultMap="User"> 
 		SELECT 

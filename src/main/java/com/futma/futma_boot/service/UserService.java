@@ -48,8 +48,8 @@ public class UserService {
 	}
 	
 	
-	public int insert (User user) {
-		return userDao.insert(user);
+	public int save (User user) {
+		return userDao.save(user);
 	}
 	
 	public User getUserByIdAndLoginType (User user) {

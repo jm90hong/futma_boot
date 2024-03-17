@@ -6,9 +6,23 @@
 	
 	 <insert id="save" parameterType="Review" useGeneratedKeys="true" keyProperty="rv_idx">
 	 	INSERT INTO review
-	 	(wr_user_idx, rv_user_idx, star, content, reply, created_date)
+	 	(
+	 		wr_user_idx, 
+	 		rv_user_idx, 
+	 		star, 
+	 		content, 
+	 		reply, 
+	 		created_date
+ 		)
 	 	VALUES
-	 	(#{wr_user_idx}, #{rv_user_idx}, #{star}, #{content}, #{reply}, SYSDATE())
+	 	(
+	 		#{wr_user_idx}, 
+	 		#{rv_user_idx}, 
+	 		#{star}, 
+	 		#{content}, 
+	 		#{reply}, 
+	 		SYSDATE()
+ 		)
 	 </insert>
 	 		
 	 <update id="updateReply" parameterType="Review" >
@@ -22,8 +36,7 @@
 		
 	 <select id="findByRvUserIdx" parameterType="HashMap" resultType="Review">
 	 	SELECT 
-	 		*,
-	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel
+	 		*
 	    FROM review AS r
 	 	INNER JOIN user AS u
 	 	ON r.wr_user_idx= u.user_idx
@@ -35,8 +48,7 @@
 	 
 	 <select id="findByWrUserIdx" parameterType="HashMap" resultType="Review">
 	 	SELECT 
-	 		*,
-	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel
+	 		*
 	 	FROM review AS r
 	 	INNER JOIN user AS u
 	 	ON r.wr_user_idx= u.user_idx
