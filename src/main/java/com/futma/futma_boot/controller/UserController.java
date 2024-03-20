@@ -137,7 +137,8 @@ public class UserController {
 				@RequestParam(value="nick") String nick,
 				@RequestParam(value="gender") String gender,
 				@RequestParam(value="birth") String birth,
-				@RequestParam(value="location") String location
+				@RequestParam(value="dosi") String dosi,
+				@RequestParam(value="gu") String gu
 			) {
 		
 		User user = new User();
@@ -150,7 +151,8 @@ public class UserController {
 		user.setNick(nick);
 		user.setGender(gender);
 		user.setBirth(birth);
-		user.setU_act_location(location);
+		user.setU_dosi(dosi);
+		user.setU_gu(gu);
 		
 		
 		//닉네임으로 먼저 조회

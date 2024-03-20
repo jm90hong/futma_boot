@@ -22,37 +22,13 @@ public class User {
 	private String text_msg=null;
 	private String gender=null;
 	private String birth=null;
-	private String u_act_location=null;
-	
-	
+	private String u_dosi=null;
+	private String u_gu=null;
 	
 	//manager 
 	private String act_addr1=null;
 	private String act_addr2=null;
 	private String owner_ny=null;
-	
-	
-	
-	
-	
-	public String getU_act_location() {
-		return u_act_location;
-	}
-	public void setU_act_location(String u_act_location) {
-		this.u_act_location = u_act_location;
-	}
-	public String getBirth() {
-		return birth;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 	public long getUser_idx() {
 		return user_idx;
 	}
@@ -155,6 +131,30 @@ public class User {
 	public void setText_msg(String text_msg) {
 		this.text_msg = text_msg;
 	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public String getU_dosi() {
+		return u_dosi;
+	}
+	public void setU_dosi(String u_dosi) {
+		this.u_dosi = u_dosi;
+	}
+	public String getU_gu() {
+		return u_gu;
+	}
+	public void setU_gu(String u_gu) {
+		this.u_gu = u_gu;
+	}
 	public String getAct_addr1() {
 		return act_addr1;
 	}
@@ -173,6 +173,12 @@ public class User {
 	public void setOwner_ny(String owner_ny) {
 		this.owner_ny = owner_ny;
 	}
+	
+	
+	
+	
+	
+	
 
 	
 	
