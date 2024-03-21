@@ -56,7 +56,9 @@ public class ManagerController {
 	
 	
 	@PostMapping("/addOrUpdate")
-	public  String testadd(@RequestBody Map<String, Object> map) throws Exception {
+	public  String addOrUpdate(
+				@RequestBody Map<String, Object> map
+			) throws Exception {
 		
 		
 		//transaction
@@ -86,6 +88,7 @@ public class ManagerController {
 			
 			Manager manager = new Manager();
 			manager.setUser_idx(Integer.parseInt(user_idx));
+			manager.setMng_idx(Integer.parseInt(mng_idx));
 			manager.setName(name);
 			manager.setBirth(birth);
 			manager.setAddress(address);
@@ -102,7 +105,7 @@ public class ManagerController {
 			if(mode.equals("a")) {
 				managerService.add(manager);
 				new_manager_idx=manager.getMng_idx();
-			}else {
+			}else{
 				managerService.update(manager);
 				new_manager_idx=Integer.parseInt(mng_idx);
 			}

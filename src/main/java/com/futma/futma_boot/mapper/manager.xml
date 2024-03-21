@@ -64,7 +64,7 @@
 			#{owner_ny},
 			#{kakao_pay_link}, 
 			#{bank_name},
-			#{bank_account, typeHandler=AesCipherTypeHandler}
+			#{bank_account, typeHandler=AesCipherTypeHandler},
 			SYSDATE()
 		)
 	</insert>	
