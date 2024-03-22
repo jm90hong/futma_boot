@@ -14,6 +14,11 @@ public class Stadium {
 	private String std_img_url=null;
 	private String std_strg_name=null;
 	private String created_date=null;
+	
+	
+	
+	
+	
 	public int getStadium_idx() {
 		return stadium_idx;
 	}

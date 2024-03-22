@@ -176,7 +176,8 @@ public class GameController {
 				@RequestParam(value="eg") String end_game_ny,
 				@RequestParam(value="p") int price,
 				@RequestParam(value="c", defaultValue="") String content,
-				@RequestParam(value="cnt") int player_cnt
+				@RequestParam(value="cnt") int player_cnt,
+				@RequestParam(value="pay_link_url", defaultValue="") String pay_link_url
 			) {
 		
 	
@@ -199,6 +200,7 @@ public class GameController {
 		game.setPrice(price);
 		game.setContent(content);
 		game.setPlayer_cnt(player_cnt);
+		game.setPay_link_url(pay_link_url);
 		
 		
 		gameService.add(game);

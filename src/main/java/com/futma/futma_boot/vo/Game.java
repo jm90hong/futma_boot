@@ -26,6 +26,7 @@ public class Game {
 	private String del_ny = null;
 	private String modified_date=null;
 	private String created_date=null;
+	private String pay_link_url=null;
 	
 	
 	//stadium
@@ -50,6 +51,14 @@ public class Game {
 
 
 	
+	public String getPay_link_url() {
+		return pay_link_url;
+	}
+
+	public void setPay_link_url(String pay_link_url) {
+		this.pay_link_url = pay_link_url;
+	}
+
 	public float getStar_rank() {
 		return star_rank;
 	}

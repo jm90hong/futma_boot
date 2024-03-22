@@ -167,6 +167,7 @@
 		 	price,
 		 	content,
 		 	player_cnt,
+		 	pay_link_url,
 		 	modified_date,
 		 	created_date
 	 	 )
@@ -190,6 +191,7 @@
 		 	#{price},
 		 	#{content},
 		 	#{player_cnt},
+		 	#{pay_link_url},
 		 	SYSDATE(),
 		 	SYSDATE()
 		 )	
