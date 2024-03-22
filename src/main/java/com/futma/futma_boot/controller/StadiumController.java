@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +26,7 @@ public class StadiumController {
 	private StadiumService stadiumService;
 	
 	
-	@RequestMapping(value="getByIdx",method=RequestMethod.GET)
+	@GetMapping("getByIdx")
 	public @ResponseBody Stadium getByIdx(
 				@RequestParam(value="stadium_idx") int stadium_idx
 			) {
@@ -41,19 +42,19 @@ public class StadiumController {
 	
 	
 	
-	@RequestMapping(value="search",method=RequestMethod.GET)
+	@GetMapping("search")
 	public @ResponseBody List<Stadium> search(
-				@RequestParam(value="location",defaultValue="") String location,
+				@RequestParam(value="dosi",defaultValue="") String dosi,
 				@RequestParam(value="word",defaultValue="") String word
 			) {
 		
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
-		if(location.equals("전체")) {
-			map.put("location", null);
+		if(dosi.equals("전체")) {
+			map.put("dosi", null);
 		}else {
-			map.put("location", location);
+			map.put("dosi", dosi);
 		}
 		
 		if(word.equals("")) {

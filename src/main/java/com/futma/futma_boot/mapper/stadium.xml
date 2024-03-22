@@ -12,8 +12,8 @@
 		SELECT *
 		FROM `stadium`
 		<trim prefix="WHERE" suffixOverrides="WHERE" prefixOverrides="AND | OR | WHERE">
-			<if test="location != null">
-				location='${location}' 
+			<if test="std_dosi != null">
+				std_dosi='${std_dosi}' 
 			</if>
 			<if test="word != null">
 				AND MATCH(search_txt) AGAINST('*${word}*' IN BOOLEAN MODE)

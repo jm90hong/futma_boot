@@ -25,10 +25,30 @@ public class User {
 	private String u_dosi=null;
 	private String u_gu=null;
 	
+	
+	
 	//manager 
-	private String act_addr1=null;
-	private String act_addr2=null;
+	private String act_dosi=null;
+	private String act_gu=null;
 	private String owner_ny=null;
+	
+	
+	
+	
+	
+	
+	public String getAct_dosi() {
+		return act_dosi;
+	}
+	public void setAct_dosi(String act_dosi) {
+		this.act_dosi = act_dosi;
+	}
+	public String getAct_gu() {
+		return act_gu;
+	}
+	public void setAct_gu(String act_gu) {
+		this.act_gu = act_gu;
+	}
 	public long getUser_idx() {
 		return user_idx;
 	}
@@ -155,18 +175,7 @@ public class User {
 	public void setU_gu(String u_gu) {
 		this.u_gu = u_gu;
 	}
-	public String getAct_addr1() {
-		return act_addr1;
-	}
-	public void setAct_addr1(String act_addr1) {
-		this.act_addr1 = act_addr1;
-	}
-	public String getAct_addr2() {
-		return act_addr2;
-	}
-	public void setAct_addr2(String act_addr2) {
-		this.act_addr2 = act_addr2;
-	}
+	
 	public String getOwner_ny() {
 		return owner_ny;
 	}

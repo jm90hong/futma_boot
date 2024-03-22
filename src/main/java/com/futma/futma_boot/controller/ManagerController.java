@@ -76,8 +76,8 @@ public class ManagerController {
 			String birth = (String) map.get("b");
 			String address = (String) map.get("a");
 			String content = (String) map.get("c");
-			String actAdress1 = (String) map.get("a1");
-			String actAdress2 = (String) map.get("a2");
+			String actDosi = (String) map.get("dosi");
+			String actGu = (String) map.get("gu");
 			String owner_ny = (String) map.get("o");
 			String kakao_pay_link=(String) map.get("kpl");
 			String bank_name=(String) map.get("bn");
@@ -93,8 +93,8 @@ public class ManagerController {
 			manager.setBirth(birth);
 			manager.setAddress(address);
 			manager.setContent(content);
-			manager.setAct_addr1(actAdress1);
-			manager.setAct_addr2(actAdress2);
+			manager.setAct_dosi(actDosi);
+			manager.setAct_gu(actGu);
 			manager.setOwner_ny(owner_ny);
 			manager.setKakao_pay_link(kakao_pay_link);
 			manager.setBank_name(bank_name);

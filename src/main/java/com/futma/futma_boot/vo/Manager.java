@@ -7,8 +7,8 @@ public class Manager {
 	private String birth=null;
 	private String address = null;
 	private String content=null;
-	private String act_addr1=null;
-	private String act_addr2=null;
+	private String act_dosi=null;
+	private String act_gu=null;
 	private String owner_ny=null;
 	private String kakao_pay_link=null;
 	private String bank_name=null;
@@ -20,6 +20,18 @@ public class Manager {
 	
 	
 	
+	public String getAct_dosi() {
+		return act_dosi;
+	}
+	public void setAct_dosi(String act_dosi) {
+		this.act_dosi = act_dosi;
+	}
+	public String getAct_gu() {
+		return act_gu;
+	}
+	public void setAct_gu(String act_gu) {
+		this.act_gu = act_gu;
+	}
 	public String getBank_name() {
 		return bank_name;
 	}
@@ -75,18 +87,7 @@ public class Manager {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getAct_addr1() {
-		return act_addr1;
-	}
-	public void setAct_addr1(String act_addr1) {
-		this.act_addr1 = act_addr1;
-	}
-	public String getAct_addr2() {
-		return act_addr2;
-	}
-	public void setAct_addr2(String act_addr2) {
-		this.act_addr2 = act_addr2;
-	}
+	
 	public String getOwner_ny() {
 		return owner_ny;
 	}
