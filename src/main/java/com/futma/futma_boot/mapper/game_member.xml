@@ -3,6 +3,13 @@
 	 		
 	
 	
+	
+	
+	<resultMap type="GameMember" id="GameMember">
+        <result column="id" property="id" typeHandler="AesCipherTypeHandler" />
+        <result column="tel" property="tel" typeHandler="AesCipherTypeHandler" />
+    </resultMap>
+	
 	<select id="getCurrentJoinedGameByUserIdxWithLimit"  parameterType="HashMap" resultType="Game">
 		SELECT g.*, s.*, gm.pay_ny, gm.del_ny, gm.pay_date
 	 	FROM game_member AS gm
@@ -32,7 +39,7 @@
 	
 	 		
 	 		
-	<select id="getByUserIdx" parameterType="GameMember" resultType="GameMember">
+	<select id="getByUserIdx" parameterType="GameMember" resultMap="GameMember">
 	 	SELECT * 
 	 	FROM game_member 
 	 	WHERE 
@@ -41,10 +48,9 @@
 	 		del_ny='n'
 	</select>
 	 		
-	 <select id="getByGameIdx" parameterType="GameMember" resultType="GameMember">
+	 <select id="getByGameIdx" parameterType="GameMember" resultMap="GameMember">
 	 	SELECT 
-	 		*,
-	 		AES_DECRYPT(UNHEX(u.tel_enc), 'futma') AS tel 
+	 		*
 	 	FROM game_member AS gm
 	 	INNER JOIN user AS u
 	 	ON gm.user_idx=u.user_idx
@@ -55,13 +61,30 @@
 
 	 <insert id="add" parameterType="GameMember">
 	 	INSERT INTO game_member
-	 	(game_idx, user_idx, price, pay_ny, del_ny, pay_date, member_cnt, created_date)
+	 	(
+	 		game_idx, 
+	 		user_idx, 
+	 		price, 
+	 		pay_ny, 
+	 		del_ny, 
+	 		pay_date, 
+	 		member_cnt, 
+	 		created_date
+ 		)
 	 	VALUES
-	 	(#{game_idx}, #{user_idx}, #{price}, #{pay_ny}, 'n', SYSDATE(),#{member_cnt}, SYSDATE())
+	 	(
+	 		#{game_idx}, 
+	 		#{user_idx}, 
+	 		#{price}, 
+	 		#{pay_ny}, 
+	 		'n', 
+	 		SYSDATE(),
+	 		#{member_cnt}, 
+	 		SYSDATE()
+ 		)
 	 </insert>
 	 		
-		
-	
+	 	
 	 <delete id="delMember" parameterType="GameMember">
 	 	DELETE FROM game_member
 	 	WHERE game_mem_idx=#{game_mem_idx}
