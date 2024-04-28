@@ -11,6 +11,7 @@
      <resultMap type="Game" id="Game">
    	 	<result column="id" property="id"  typeHandler="AesCipherTypeHandler" />
         <result column="tel" property="tel"  typeHandler="AesCipherTypeHandler" />
+        <result column="bank_account" property="bank_account"  typeHandler="AesCipherTypeHandler" />
      </resultMap>
     
 	 
@@ -43,7 +44,7 @@
 	 	LIMIT 0, #{cnt}
 	 </select>
 	 
-	 <select id="getCurrentGameByUserIdx" parameterType="HashMap" resultType="Game">
+	 <select id="getCurrentGameByUserIdx" parameterType="HashMap" resultMap="Game">
 	 	SELECT * 
 	 	FROM game as g 
 	 	INNER JOIN stadium as s
@@ -69,7 +70,7 @@
 	 
 	 
 	 
-	 <select id="getByIdx" parameterType="Game" resultType="Game">
+	 <select id="getByIdx" parameterType="Game" resultMap="Game">
 	 	SELECT 
 	 		*
 	 	FROM game as g 
@@ -83,7 +84,7 @@
 	 </select>		
 	 		
 	 
-	 <select id="getByUserIdxList"  parameterType="HashMap" resultType="Game">
+	 <select id="getByUserIdxList"  parameterType="HashMap" resultMap="Game">
 	 	SELECT *
 	 	FROM game as g 
 	 	INNER JOIN user as u
@@ -104,7 +105,7 @@
 	 </select>		
 		
 	 		
-	 <select id="search" parameterType="HashMap" resultType="Game">
+	 <select id="search" parameterType="HashMap" resultMap="Game">
 	 	SELECT *
 	 	FROM game as g 
 	 	INNER JOIN user as u
@@ -167,6 +168,7 @@
 		 	price,
 		 	content,
 		 	player_cnt,
+		 	pay_link_url,
 		 	modified_date,
 		 	created_date
 	 	 )
@@ -190,6 +192,7 @@
 		 	#{price},
 		 	#{content},
 		 	#{player_cnt},
+		 	#{pay_link_url},
 		 	SYSDATE(),
 		 	SYSDATE()
 		 )	

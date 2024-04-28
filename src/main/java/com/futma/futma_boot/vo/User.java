@@ -22,36 +22,32 @@ public class User {
 	private String text_msg=null;
 	private String gender=null;
 	private String birth=null;
-	private String u_act_location=null;
+	private String u_dosi=null;
+	private String u_gu=null;
 	
 	
 	
 	//manager 
-	private String act_addr1=null;
-	private String act_addr2=null;
+	private String act_dosi=null;
+	private String act_gu=null;
 	private String owner_ny=null;
 	
 	
 	
 	
 	
-	public String getU_act_location() {
-		return u_act_location;
+	
+	public String getAct_dosi() {
+		return act_dosi;
 	}
-	public void setU_act_location(String u_act_location) {
-		this.u_act_location = u_act_location;
+	public void setAct_dosi(String act_dosi) {
+		this.act_dosi = act_dosi;
 	}
-	public String getBirth() {
-		return birth;
+	public String getAct_gu() {
+		return act_gu;
 	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setAct_gu(String act_gu) {
+		this.act_gu = act_gu;
 	}
 	public long getUser_idx() {
 		return user_idx;
@@ -155,24 +151,43 @@ public class User {
 	public void setText_msg(String text_msg) {
 		this.text_msg = text_msg;
 	}
-	public String getAct_addr1() {
-		return act_addr1;
+	public String getGender() {
+		return gender;
 	}
-	public void setAct_addr1(String act_addr1) {
-		this.act_addr1 = act_addr1;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
-	public String getAct_addr2() {
-		return act_addr2;
+	public String getBirth() {
+		return birth;
 	}
-	public void setAct_addr2(String act_addr2) {
-		this.act_addr2 = act_addr2;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
+	public String getU_dosi() {
+		return u_dosi;
+	}
+	public void setU_dosi(String u_dosi) {
+		this.u_dosi = u_dosi;
+	}
+	public String getU_gu() {
+		return u_gu;
+	}
+	public void setU_gu(String u_gu) {
+		this.u_gu = u_gu;
+	}
+	
 	public String getOwner_ny() {
 		return owner_ny;
 	}
 	public void setOwner_ny(String owner_ny) {
 		this.owner_ny = owner_ny;
 	}
+	
+	
+	
+	
+	
+	
 
 	
 	
