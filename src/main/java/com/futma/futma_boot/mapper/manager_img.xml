@@ -5,9 +5,18 @@
 	 		
 	<insert id="add" parameterType="ManagerImg">
 		INSERT INTO `manager_img`
-		(mng_idx, img_url, created_date)
+		(
+			mng_idx, 
+			img_url,
+			strg_name, 
+			created_date)
 		VALUES
-		(#{mng_idx}, #{img_url}, SYSDATE())
+		(
+			#{mng_idx},
+			#{img_url},
+			#{strg_name},
+			SYSDATE()
+		)
 	</insert>	
 	
 

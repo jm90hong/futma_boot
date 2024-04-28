@@ -84,6 +84,8 @@ public class ManagerController {
 			String bank_account=(String) map.get("ba");
 			@SuppressWarnings("unchecked")
 			List<String> imgs = (List<String>) map.get("imgs");
+			@SuppressWarnings("unchecked")
+			List<String> strg_names = (List<String>) map.get("strg_names");
 			
 			
 			Manager manager = new Manager();
@@ -123,6 +125,9 @@ public class ManagerController {
 				
 				//add manager images
 				mi.setImg_url(imgs.get(i));
+				
+				//add firebase storage name
+				mi.setStrg_name(strg_names.get(i));
 				managerImgService.add(mi);
 			}
 			

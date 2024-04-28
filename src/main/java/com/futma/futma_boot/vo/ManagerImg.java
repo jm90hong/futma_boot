@@ -4,9 +4,17 @@ public class ManagerImg {
 	private int mng_img_idx=0;
 	private int mng_idx=0;
 	private String img_url=null;
+	private String strg_name=null;
 	private String created_date=null;
 	
 	
+	
+	public String getStrg_name() {
+		return strg_name;
+	}
+	public void setStrg_name(String strg_name) {
+		this.strg_name = strg_name;
+	}
 	public int getMng_img_idx() {
 		return mng_img_idx;
 	}
