@@ -1,5 +1,7 @@
+src/main/resources/application.properties
+src/main/resources/firebaseServiceAccountKey.json
+
 HELP.md
-/src/main/resources/firebaseServiceAccountKey.json
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
