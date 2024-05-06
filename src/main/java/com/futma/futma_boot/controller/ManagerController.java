@@ -23,6 +23,8 @@ import com.futma.futma_boot.service.UserService;
 import com.futma.futma_boot.vo.Manager;
 import com.futma.futma_boot.vo.ManagerImg;
 import com.futma.futma_boot.vo.User;
+import com.google.cloud.storage.Bucket;
+import com.google.firebase.cloud.StorageClient;
 
 @RestController
 @RequestMapping("mng")
@@ -44,7 +46,13 @@ public class ManagerController {
 	private UserService userService;
 
 	
-	
+	@GetMapping("findByMngIdx")
+	public List<ManagerImg> findByMngIdx(
+				@RequestParam(value="mng_idx") int mng_idx
+			) {
+		
+		return managerImgService.fidnByMngIdx(mng_idx);
+	}
 	
 	@GetMapping("findByUserIdx")
 	public Manager findByUserIdx(
