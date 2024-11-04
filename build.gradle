@@ -7,7 +7,7 @@ plugins {
 
 group = 'com.futma'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 repositories {
 	mavenCentral()
@@ -35,6 +35,9 @@ dependencies {
 	
 	//coolsms
 	implementation 'net.nurigo:sdk:4.2.7'
+	
+	// https://mvnrepository.com/artifact/com.google.firebase/firebase-admin
+	implementation group: 'com.google.firebase', name: 'firebase-admin', version: '8.1.0'
 	
 }
 

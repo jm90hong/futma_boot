@@ -14,7 +14,9 @@ public class UserDao {
 	@Autowired
 	SqlSession sqlSession;
 	
-	
+	public int updateDelNy(User user) {
+		return sqlSession.update("user.updateDelNy",user);
+	}
 	
 	public User findByTel(String tel) {
 		return sqlSession.selectOne("user.findByTel", tel);

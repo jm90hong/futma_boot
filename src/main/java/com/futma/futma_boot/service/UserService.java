@@ -13,6 +13,9 @@ public class UserService {
 	UserDao userDao;
 	
 	
+	public int updateDelNy(User user) {
+		return userDao.updateDelNy(user);
+	}
 	
 	public User findByTel(String tel) {
 		return userDao.findByTel(tel);

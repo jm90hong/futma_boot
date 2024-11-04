@@ -13,6 +13,6 @@ public class FirebaseService {
 	
 	@PostConstruct
 	public void initialize() {
-		System.out.println("초기화");
+		//System.out.println("초기화");
 	}
 }

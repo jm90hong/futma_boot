@@ -29,6 +29,24 @@ public class UserController {
 	private UserService userService;
 	
 	
+	//회원 탈퇴 및 요청
+	@PostMapping("updateDelNy")
+	public String updateDelNy(
+				@RequestParam(value="user_idx") int user_idx,
+				@RequestParam(value="del_ny") String del_ny
+			) {
+		
+		
+		User user = new User();
+		user.setUser_idx(user_idx);
+		user.setDel_ny(del_ny);
+		
+		userService.updateDelNy(user);
+		
+		return "ok";
+	}
+	
+	
 	@PostMapping("updateReqInf")
 	public String updateReqInf(
 				@RequestParam(value="uidx") int user_idx,

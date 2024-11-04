@@ -17,6 +17,13 @@
     </resultMap>
     
      	
+	<update id="updateDelNy" parameterType="User">
+		update `user`
+		set
+			del_ny=#{del_ny}
+		where 
+			user_idx=#{user_idx}	
+	</update>
 	
 	<select id="findByUUID"	parameterType="String" resultMap="User">
 		SELECT 

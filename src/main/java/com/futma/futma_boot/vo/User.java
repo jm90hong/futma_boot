@@ -24,6 +24,7 @@ public class User {
 	private String birth=null;
 	private String u_dosi=null;
 	private String u_gu=null;
+	private String del_ny=null;
 	
 	
 	
@@ -37,6 +38,12 @@ public class User {
 	
 	
 	
+	public String getDel_ny() {
+		return del_ny;
+	}
+	public void setDel_ny(String del_ny) {
+		this.del_ny = del_ny;
+	}
 	public String getAct_dosi() {
 		return act_dosi;
 	}
