@@ -1,5 +1,6 @@
 package com.futma.futma_boot.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import net.nurigo.sdk.NurigoApp;
@@ -12,8 +13,18 @@ public class SmsService {
 	
 	static String ADMIN_TEL_NUMBER = "01099361422";
 
+	
+	
+	 @Value("${coolsms.api.key}")
+	 private String apiKey;
+	 
+	 
+	 @Value("${coolsms.api.secret}")
+	  private String secretKey;
+	
+	
 	public boolean sendSMS(String toTelNumber, String m) {
-		DefaultMessageService messageService =  NurigoApp.INSTANCE.initialize("NCSDI4IFRRU5F6WR", "LJTVHE00KXFETQCMSCJXFC0SQVENLWBT", "https://api.coolsms.co.kr");
+		DefaultMessageService messageService =  NurigoApp.INSTANCE.initialize(apiKey, secretKey, "https://api.coolsms.co.kr");
 		// Message 패키지가 중복될 경우 net.nurigo.sdk.message.model.Message로 치환하여 주세요
 		Message message = new Message();
 		message.setFrom(ADMIN_TEL_NUMBER);
